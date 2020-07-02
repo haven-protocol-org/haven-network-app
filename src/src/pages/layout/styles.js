@@ -10,6 +10,8 @@ export const Container = styled.div`
   font-family: "Inter", sans-serif;
   display: flex;
   justify-content: center;
+  overflow: scroll;
+  padding-bottom: 40px;
 `;
 
 export const Page = styled.div`
@@ -25,6 +27,19 @@ export const Grid = styled.div`
   height: 200pxs;
   width: 100%;
   grid-template-columns: repeat(4, 1fr);
+
+  ${media.tablet`
+    grid-template-columns: 1fr;
+  `};
+`;
+
+export const ChartContainer = styled.div`
+  display: grid;
+  grid-gap: 20px;
+  height: auto;
+  width: 100%;
+  background: pink;
+  grid-template-columns:  1fr);
 
   ${media.tablet`
     grid-template-columns: 1fr;

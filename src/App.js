@@ -6,21 +6,24 @@ import axios from "axios";
 // Components
 import Layout from "./src/pages/layout";
 import Navigation from "./src/components/navigation/index.js";
+import CirculatingSupply from "./src/components/charts/circulatingSupply/index.js";
 
 const stagenet = "https://network-api.havenprotocol.org/api-stagenet/info";
-const mainnet = "https://network-api.havenprotocol.org/api/info";
+const supply =
+  "https://network-api.havenprotocol.org/api-stagenet/circulationSupply";
 
 class App extends Component {
   state = {
     network: "",
     version: "",
     xUSD_Price: "",
+    supply_coins: null,
   };
   componentDidMount() {
     axios.get(`${stagenet}`).then((response) => {
       // handle success
 
-      const { bc, coingecko, db_lastblock, db_lastblock24 } = response.data;
+      const { bc, coingecko, db_lastblock } = response.data;
 
       console.log("MA", response.data);
 
@@ -33,17 +36,23 @@ class App extends Component {
         xhv_spot: coingecko.tickers[4].last,
       });
     });
+
+    axios.get(`${supply}`).then((response) => {
+      this.setState({
+        supply_coins: response.data.supply_coins,
+      });
+    });
   }
 
   render() {
+    const { network, version, supply_coins } = this.state;
     return (
       <>
         <Router>
-          <Navigation
-            network={this.state.network}
-            version={this.state.version}
-          />
-          <Layout state={this.state} />
+          <Navigation network={network} version={version} />
+          <Layout state={this.state}>
+            <CirculatingSupply data={supply_coins} />
+          </Layout>
         </Router>
       </>
     );

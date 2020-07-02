@@ -1,12 +1,14 @@
 // Library Imports
 import React, { Component } from "react";
+import { Line } from "react-chartjs-2";
+import CirculatingSupply from "../../components/charts/circulatingSupply/index.js";
 
 // Relative Imports
 import { Container, Grid, Page, Statistic, Data, Label, Value } from "./styles";
 
 class Layout extends Component {
   render() {
-    const { xusd_price, xusd_supply, xhv_supply, xhv_spot } = this.props.state;
+    const { xusd_price, xusd_supply, xhv_supply } = this.props.state;
     const xUSD = parseFloat(xusd_price).toFixed(4);
 
     const network_calc = xusd_price * xhv_supply + xusd_supply;
@@ -54,6 +56,7 @@ class Layout extends Component {
               </Data>
             </Statistic>
           </Grid>
+          {this.props.children}
         </Page>
       </Container>
     );
