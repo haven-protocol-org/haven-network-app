@@ -17,15 +17,13 @@ class App extends Component {
     network: "",
     version: "",
     xUSD_Price: "",
-    supply_coins: null,
+    supply_coins: {},
   };
   componentDidMount() {
     axios.get(`${stagenet}`).then((response) => {
       // handle success
 
       const { bc, coingecko, db_lastblock } = response.data;
-
-      console.log("MA", response.data);
 
       this.setState({
         version: bc.result.version,
@@ -47,14 +45,12 @@ class App extends Component {
   render() {
     const { network, version, supply_coins } = this.state;
     return (
-      <>
-        <Router>
-          <Navigation network={network} version={version} />
-          <Layout state={this.state}>
-            <CirculatingSupply data={supply_coins} />
-          </Layout>
-        </Router>
-      </>
+      <Router>
+        <Navigation network={network} version={version} />
+        <Layout state={this.state}>
+          <CirculatingSupply data={supply_coins} />
+        </Layout>
+      </Router>
     );
   }
 }

@@ -17,7 +17,7 @@ export const Container = styled.div`
 export const Page = styled.div`
   height: 100%;
   width: 100%;
-  max-width: 1420px;
+  max-width: 1140px;
   padding: 20px;
 `;
 
