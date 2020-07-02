@@ -2,18 +2,19 @@
 import React, { Component } from "react";
 
 // Relative Imports
-import { Container, Haven, Logo, Brand } from "./styles.js";
+import { Container, Haven, Logo, Brand, Tag } from "./styles.js";
 import Icon from "../../assets/logo/haven.svg";
 
 class Navigation extends Component {
   render() {
-    const auth = this.props.isLoggedIn;
-
     return (
       <Container>
-        <Brand to={auth === true ? "/wallet/assets" : "/"}>
+        <Brand to={"/"}>
           <Logo src={Icon} />
           <Haven>HAVEN </Haven>
+          <Tag>
+            v{this.props.version} {this.props.network}
+          </Tag>
         </Brand>
       </Container>
     );
