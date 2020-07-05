@@ -23,9 +23,6 @@ class CirculatingSupply extends Component {
     let date = [];
 
     for (var i = 0; i < data.length; i++) {
-      console.log(data[i].period);
-      console.log(data[i].XHV);
-      console.log(data[i].xUSD);
       xhv.push(data[i].XHV);
       xusd.push(data[i].xUSD);
       date.push(data[i].period);
@@ -82,7 +79,20 @@ class CirculatingSupply extends Component {
     return (
       <Container>
         <Header>Circulating Supply</Header>
-        <Line data={info} />
+        <Line
+          options={{
+            scales: {
+              yAxes: [
+                {
+                  gridLines: {
+                    display: false,
+                  },
+                },
+              ],
+            },
+          }}
+          data={info}
+        />
       </Container>
     );
   }

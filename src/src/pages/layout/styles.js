@@ -51,7 +51,7 @@ export const Statistic = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 284px;
+  height: 120px;
   border-radius: 4px;
   background: ${dark.body.foreground};
   border: 1px solid ${dark.body.border};
@@ -65,14 +65,14 @@ export const Data = styled.div`
 `;
 
 export const Label = styled.div`
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5em;
   color: ${dark.type.secondary};
   font-family: "Inter", sans-serif;
 `;
 
 export const Value = styled.div`
-  font-size: 32px;
+  font-size: 24px;
   line-height: 1.5em;
   font-weight: 600;
   color: ${dark.type.primary};

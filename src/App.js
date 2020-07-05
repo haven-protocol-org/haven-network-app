@@ -6,7 +6,8 @@ import axios from "axios";
 // Components
 import Layout from "./src/pages/layout";
 import Navigation from "./src/components/navigation/index.js";
-import CirculatingSupply from "./src/components/charts/circulatingSupply/index.js";
+import CirculatingSupply from "./src/components/charts/circulatingSupply";
+import TotalSupply from "./src/components/charts/totalSupply";
 
 const stagenet = "https://network-api.havenprotocol.org/api-stagenet/info";
 const supply =
@@ -49,6 +50,11 @@ class App extends Component {
         <Navigation network={network} version={version} />
         <Layout state={this.state}>
           <CirculatingSupply data={supply_coins} />
+          <TotalSupply
+            xusd_price={2.4545}
+            xhv_supply={382599.04}
+            xusd_supply={330359.621}
+          />
         </Layout>
       </Router>
     );
