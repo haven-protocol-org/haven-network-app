@@ -12,9 +12,6 @@ class Navigation extends Component {
         <Brand to={"/"}>
           <Logo src={Icon} />
           <Haven>HAVEN </Haven>
-          <Tag>
-            v{this.props.version} {this.props.network}
-          </Tag>
         </Brand>
       </Container>
     );
