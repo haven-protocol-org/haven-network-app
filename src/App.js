@@ -44,16 +44,16 @@ class App extends Component {
   }
 
   render() {
-    const { supply_coins } = this.state;
+    const { supply_coins, xusd_price, xusd_supply, xhv_supply } = this.state;
     return (
       <Router>
         <Navigation />
         <Layout state={this.state}>
           <CirculatingSupply data={supply_coins} />
           <TotalSupply
-            xusd_price={2.4545}
-            xhv_supply={382599.04}
-            xusd_supply={330359.621}
+            xusd_price={xusd_price}
+            xhv_supply={xhv_supply}
+            xusd_supply={xusd_supply}
           />
         </Layout>
       </Router>
