@@ -9,12 +9,8 @@ import Navigation from "./src/components/navigation/index.js";
 import CirculatingSupply from "./src/components/charts/circulatingSupply";
 import TotalSupply from "./src/components/charts/totalSupply";
 
-const stagenet = "https://network-api.havenprotocol.org/api-stagenet/info";
-const supply =
-  "https://network-api.havenprotocol.org/api-stagenet/circulationSupply";
-
-// https://network-api.havenprotocol.org/api/info
-// https://network-api.havenprotocol.org/api/circulationSupply
+const info = "https://network-api.havenprotocol.org/api/info";
+const supply = "https://network-api.havenprotocol.org/api/circulationSupply";
 
 class App extends Component {
   state = {
@@ -23,10 +19,11 @@ class App extends Component {
     xUSD_Price: "",
     supply_coins: {},
   };
-  componentDidMount() {
-    axios.get(`${stagenet}`).then((response) => {
-      // handle success
 
+  componentDidMount() {
+    axios.get(info).then((response) => {
+      console.log("response", response);
+      // handle success
       const { bc, coingecko, db_lastblock } = response.data;
 
       this.setState({
@@ -39,7 +36,7 @@ class App extends Component {
       });
     });
 
-    axios.get(`${supply}`).then((response) => {
+    axios.get(supply).then((response) => {
       this.setState({
         supply_coins: response.data.supply_coins,
       });
@@ -47,10 +44,10 @@ class App extends Component {
   }
 
   render() {
-    const { network, version, supply_coins } = this.state;
+    const { supply_coins } = this.state;
     return (
       <Router>
-        <Navigation network={network} version={version} />
+        <Navigation />
         <Layout state={this.state}>
           <CirculatingSupply data={supply_coins} />
           <TotalSupply
