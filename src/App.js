@@ -13,6 +13,9 @@ const stagenet = "https://network-api.havenprotocol.org/api-stagenet/info";
 const supply =
   "https://network-api.havenprotocol.org/api-stagenet/circulationSupply";
 
+// https://network-api.havenprotocol.org/api/info
+// https://network-api.havenprotocol.org/api/circulationSupply
+
 class App extends Component {
   state = {
     network: "",
