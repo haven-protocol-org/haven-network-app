@@ -103,7 +103,7 @@ class App extends Component {
             secondTabState={secondTabActive}
             secondTabClickEvent={this.secondTab}
           />
-          {firstTabActive ? (
+          {firstTabActive && (
             <>
               <CirculatingSupply data={supply_coins} />
               <MarketCapAssets />
@@ -112,7 +112,8 @@ class App extends Component {
               <SpotAndMovingAveragePrice />
               <OffshoreFees />
             </>
-          ) : (
+          )}
+          {secondTabActive && (
             <>
               <MarketData data={market_data} />
               <AllTimeHighs data={market_data} />
