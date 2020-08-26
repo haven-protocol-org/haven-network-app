@@ -10,6 +10,7 @@ import Navigation from "./src/components/navigation/index.js";
 // Charts
 import CirculatingSupply from "./src/components/charts/circulatingSupply";
 import MarketCapAssets from "./src/components/charts/marketCapAssets";
+import InflationDeflationImpact from "./src/components/charts/inflationDeflationImpact";
 
 import MarketData from "./src/components/tables/market/index.js";
 import Tab from "./src/components/tab/index.js";
@@ -94,7 +95,8 @@ class App extends Component {
           {firstTabActive ? (
             <>
               <CirculatingSupply data={supply_coins} />
-              <MarketCapAssets data={supply_coins} />
+              <MarketCapAssets />
+              <InflationDeflationImpact />
             </>
           ) : (
             <MarketData data={this.state.coingecko.market_data} />
