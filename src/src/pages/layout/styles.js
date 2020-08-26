@@ -25,43 +25,6 @@ export const Page = styled.div`
   padding-bottom: 20px;
 `;
 
-export const Grid = styled.div`
-  display: grid;
-  grid-gap: 20px;
-  height: auto;
-  width: 100%;
-  grid-template-columns: repeat(4, 1fr);
-
-  ${media.tablet`
-    grid-template-columns: 1fr 1fr;
-  `};
-`;
-
-export const Row = styled.div`
-  display: grid;
-  grid-gap: 20px;
-  height: auto;
-  width: 100%;
-  grid-template-columns: repeat(1fr);
-
-  ${media.tablet`
-    grid-template-columns: 1fr;
-  `};
-`;
-
-export const ChartContainer = styled.div`
-  display: grid;
-  grid-gap: 20px;
-  height: auto;
-  width: 100%;
-  background: pink;
-  grid-template-columns: 1fr;
-
-  ${media.tablet`
-    grid-template-columns:  1fr;
-  `};
-`;
-
 export const Statistic = styled.div`
   width: auto;
   display: flex;
@@ -71,26 +34,4 @@ export const Statistic = styled.div`
   border-radius: 4px;
   background: ${dark.body.foreground};
   border: 1px solid ${dark.body.border};
-`;
-
-export const Data = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const Label = styled.div`
-  font-size: 13px;
-  line-height: 1.5em;
-  color: ${dark.type.secondary};
-  font-family: "Inter", sans-serif;
-`;
-
-export const Value = styled.div`
-  font-size: 24px;
-  line-height: 1.5em;
-  font-weight: 600;
-  color: ${dark.type.primary};
-  font-family: "Inter", sans-serif;
 `;

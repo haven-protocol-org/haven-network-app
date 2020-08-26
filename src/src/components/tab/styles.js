@@ -6,6 +6,7 @@ export const Container = styled.div`
   align-items: center;
   height: 42px;
   grid-column: 1;
+  width: auto;
   background: red;
   border-radius: 4px;
   overflow: hidden;

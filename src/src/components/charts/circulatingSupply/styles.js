@@ -3,9 +3,8 @@ import { dark } from "../../../constants/themes.js";
 
 export const Container = styled.div`
   height: auto;
-  width: 100%;
+
   background: ${dark.body.foreground};
-  margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 4px;
   border: 1px solid ${dark.body.border};
