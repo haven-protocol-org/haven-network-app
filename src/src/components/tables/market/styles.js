@@ -5,6 +5,7 @@ export const Container = styled.div`
   background: ${dark.body.foreground};
   border: 1px solid ${dark.body.border};
   border-radius: 4px;
+  grid-template-columns: repeat(1fr);
 `;
 
 export const Header = styled.div`

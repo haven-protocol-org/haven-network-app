@@ -8,6 +8,7 @@ import Layout from "./src/pages/layout";
 import Navigation from "./src/components/navigation/index.js";
 import CirculatingSupply from "./src/components/charts/circulatingSupply";
 import MarketData from "./src/components/tables/market/index.js";
+import Tab from "./src/components/tab/index.js";
 
 const info = "https://network-api.havenprotocol.org/api/info";
 const supply = "https://network-api.havenprotocol.org/api/circulationSupply";
@@ -55,13 +56,29 @@ class App extends Component {
       });
   }
 
+  firstTab = () => {
+    console.log("First");
+  };
+  firstTab = () => {
+    console.log("Second");
+  };
+
   render() {
     // const { supply_coins } = this.state;
     // {<CirculatingSupply data={supply_coins} />}
     return (
       <Router>
         <Navigation />
+
         <Layout state={this.state}>
+          <Tab
+            firstTabLabel="Network"
+            firstTabState={true}
+            firstTabClickEvent={this.firstTab}
+            secondTabLabel="Pricing"
+            secondTabState={false}
+            secondTabClickEvent={this.firstTab}
+          />
           <MarketData data={this.state.coingecko.market_data} />
         </Layout>
       </Router>

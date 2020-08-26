@@ -36,6 +36,18 @@ export const Grid = styled.div`
   `};
 `;
 
+export const Row = styled.div`
+  display: grid;
+  grid-gap: 20px;
+  height: auto;
+  width: 100%;
+  grid-template-columns: repeat(1fr);
+
+  ${media.tablet`
+    grid-template-columns: 1fr;
+  `};
+`;
+
 export const ChartContainer = styled.div`
   display: grid;
   grid-gap: 20px;
