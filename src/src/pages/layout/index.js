@@ -1,19 +1,8 @@
 // Library Imports
 import React, { Component } from "react";
-import { Line } from "react-chartjs-2";
-import CirculatingSupply from "../../components/charts/circulatingSupply/index.js";
 
 // Relative Imports
-import {
-  Container,
-  Grid,
-  Page,
-  Row,
-  Statistic,
-  Data,
-  Label,
-  Value,
-} from "./styles";
+import { Container, Grid, Page, Statistic, Data, Label, Value } from "./styles";
 
 class Layout extends Component {
   render() {
