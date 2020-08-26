@@ -6,6 +6,7 @@ import axios from "axios";
 // Components
 import Layout from "./src/pages/layout";
 import Navigation from "./src/components/navigation/index.js";
+import Tab from "./src/components/tab/index.js";
 
 // Charts
 import CirculatingSupply from "./src/components/charts/circulatingSupply";
@@ -15,8 +16,10 @@ import OffshoreFees from "./src/components/charts/offshoreFees";
 import SpotAndMovingAveragePercent from "./src/components/charts/spotMADeviationPercent";
 import SpotAndMovingAveragePrice from "./src/components/charts/spotMADeviationPrice";
 
-import MarketData from "./src/components/tables/market/index.js";
-import Tab from "./src/components/tab/index.js";
+// Tables
+import MarketData from "./src/components/tables/marketData";
+import AllTimeHighs from "./src/components/tables/allTimeHighs";
+import AllTimeLows from "./src/components/tables/allTimeLows";
 
 const info = "https://network-api.havenprotocol.org/api/info";
 const supply = "https://network-api.havenprotocol.org/api/circulationSupply";
@@ -105,7 +108,11 @@ class App extends Component {
               <OffshoreFees />
             </>
           ) : (
-            <MarketData data={this.state.coingecko.market_data} />
+            <>
+              <MarketData data={this.state.coingecko.market_data} />
+              <AllTimeHighs data={this.state.coingecko.market_data} />
+              <AllTimeLows data={this.state.coingecko.market_data} />
+            </>
           )}
         </Layout>
       </Router>
