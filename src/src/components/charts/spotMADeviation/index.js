@@ -4,15 +4,15 @@ import React, { Component } from "react";
 // Relative Imports
 import { Container, Header, Placeholder } from "./styles";
 
-class InflationDeflationImpact extends Component {
+class SpotAndMovingAverage extends Component {
   render() {
     return (
       <Container>
-        <Header>Offshore Inflation Impact</Header>
+        <Header>Spot and MA Deviation</Header>
         <Placeholder>Placeholder</Placeholder>
       </Container>
     );
   }
 }
 
-export default InflationDeflationImpact;
+export default SpotAndMovingAverage;
