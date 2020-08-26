@@ -70,34 +70,7 @@ class MarketData extends Component {
             </Value>
           </Cell>
         </Container>
-        <Container>
-          <Header>Current Pricing</Header>
-          <Cell>
-            <Key>Price</Key>
-            <Value>
-              $
-              {data.price_change_percentage_24h === null
-                ? null
-                : data.current_price.usd.toFixed(2)}
-            </Value>
-          </Cell>
-          <Cell>
-            <Key>Percentage</Key>
-            <Value>
-              {data.price_change_percentage_24h === null
-                ? null
-                : data.price_change_percentage_24h.toFixed(2) + "%"}
-            </Value>
-          </Cell>
-          <Cell>
-            <Key>Date</Key>
-            <Value>
-              {data.ath_date.usd === null
-                ? null
-                : moment(data.ath_date.usd).format("MMM Do Y")}
-            </Value>
-          </Cell>
-        </Container>
+
         <Container>
           <Header>All Time Highs</Header>
           <Cell>

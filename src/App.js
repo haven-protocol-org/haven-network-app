@@ -6,7 +6,11 @@ import axios from "axios";
 // Components
 import Layout from "./src/pages/layout";
 import Navigation from "./src/components/navigation/index.js";
+
+// Charts
 import CirculatingSupply from "./src/components/charts/circulatingSupply";
+import MarketCapAssets from "./src/components/charts/marketCapAssets";
+
 import MarketData from "./src/components/tables/market/index.js";
 import Tab from "./src/components/tab/index.js";
 
@@ -73,12 +77,11 @@ class App extends Component {
   };
 
   render() {
-    const { firstTabActive, secondTabActive } = this.state;
-    // {<CirculatingSupply data={supply_coins} />}
+    const { firstTabActive, secondTabActive, supply_coins } = this.state;
+
     return (
       <Router>
         <Navigation />
-
         <Layout state={this.state}>
           <Tab
             firstTabLabel="Network"
@@ -89,7 +92,10 @@ class App extends Component {
             secondTabClickEvent={this.secondTab}
           />
           {firstTabActive ? (
-            <div>hey</div>
+            <>
+              <CirculatingSupply data={supply_coins} />
+              <MarketCapAssets data={supply_coins} />
+            </>
           ) : (
             <MarketData data={this.state.coingecko.market_data} />
           )}
