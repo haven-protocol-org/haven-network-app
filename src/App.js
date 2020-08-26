@@ -11,6 +11,7 @@ import Navigation from "./src/components/navigation/index.js";
 import CirculatingSupply from "./src/components/charts/circulatingSupply";
 import MarketCapAssets from "./src/components/charts/marketCapAssets";
 import InflationDeflationImpact from "./src/components/charts/inflationDeflationImpact";
+import SpotAndMovingAverage from ".src/components/charts/spotMADeviation";
 
 import MarketData from "./src/components/tables/market/index.js";
 import Tab from "./src/components/tab/index.js";
@@ -97,6 +98,7 @@ class App extends Component {
               <CirculatingSupply data={supply_coins} />
               <MarketCapAssets />
               <InflationDeflationImpact />
+              <SpotAndMovingAverage />
             </>
           ) : (
             <MarketData data={this.state.coingecko.market_data} />
