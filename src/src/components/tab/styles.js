@@ -7,7 +7,6 @@ export const Container = styled.div`
   height: 42px;
   grid-column: 1;
   width: auto;
-  background: red;
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid ${(props) => dark.body.border};

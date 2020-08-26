@@ -73,6 +73,8 @@ class CirculatingSupply extends Component {
         <Header>Circulating Supply</Header>
         <Line
           options={{
+            responsive: true,
+            maintainAspectRatio: true,
             scales: {
               yAxes: [
                 {

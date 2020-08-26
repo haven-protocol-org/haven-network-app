@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { dark } from "../../constants/themes.js";
-import media from "../../constants/media.js";
 
 export const Container = styled.div`
   height: auto;

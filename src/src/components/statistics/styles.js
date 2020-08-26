@@ -2,15 +2,6 @@ import styled from "styled-components";
 import { dark } from "../../constants/themes.js";
 import media from "../../constants/media.js";
 
-export const Container = styled.div`
-  height: auto;
-  background: ${dark.body.background};
-  font-family: "Inter", sans-serif;
-  display: flex;
-  justify-content: center;
-  overflow: scroll;
-`;
-
 export const Grid = styled.div`
   display: grid;
   grid-gap: 20px;
@@ -18,7 +9,7 @@ export const Grid = styled.div`
   width: auto;
   grid-template-columns: repeat(4, 1fr);
 
-  ${media.tablet`
+  ${media.desktop`
     grid-template-columns: 1fr 1fr;
   `};
 

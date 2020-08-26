@@ -2,7 +2,7 @@
 import React from "react";
 
 // Relative Imports
-import { Container, Data, Grid, Value, Label, Statistic } from "./styles";
+import { Data, Grid, Value, Label, Statistic } from "./styles";
 
 const Statistics = ({ xUSD, xhv_circ, xusd_circ, network_value }) => {
   return (
