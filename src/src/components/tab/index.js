@@ -9,9 +9,8 @@ const Tab = ({
   secondTabLabel,
   firstTabState,
   secondTabState,
-  onClick,
   firstTabClickEvent,
-  secondTabClickEvent
+  secondTabClickEvent,
 }) => {
   return (
     <Container>

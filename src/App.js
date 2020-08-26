@@ -20,6 +20,8 @@ class App extends Component {
     xUSD_Price: "",
     supply_coins: {},
     coingecko: {},
+    firstTabActive: true,
+    secondTabActive: false,
   };
 
   componentDidMount() {
@@ -57,10 +59,17 @@ class App extends Component {
   }
 
   firstTab = () => {
-    console.log("First");
+    this.setState({
+      firstTabActive: true,
+      secondTabActive: false,
+    });
   };
-  firstTab = () => {
-    console.log("Second");
+
+  secondTab = () => {
+    this.setState({
+      firstTabActive: false,
+      secondTabActive: true,
+    });
   };
 
   render() {
@@ -73,11 +82,11 @@ class App extends Component {
         <Layout state={this.state}>
           <Tab
             firstTabLabel="Network"
-            firstTabState={true}
+            firstTabState={this.state.firstTabActive}
             firstTabClickEvent={this.firstTab}
             secondTabLabel="Pricing"
-            secondTabState={false}
-            secondTabClickEvent={this.firstTab}
+            secondTabState={this.state.secondTabActive}
+            secondTabClickEvent={this.secondTab}
           />
           <MarketData data={this.state.coingecko.market_data} />
         </Layout>

@@ -22,7 +22,7 @@ export const Item = styled.div`
   justify-content: center;
   cursor: pointer;
   color: ${(props) =>
-    props.active ? `${dark.button.primary_label}` : `${dark.type.secondary}`};
+    props.active ? `${dark.type.primary}` : `${dark.type.secondary}`};
   background: ${(props) =>
     props.active ? `${dark.button.primary}` : `${dark.body.foreground}`};
   transition: 500ms;
