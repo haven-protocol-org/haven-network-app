@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import media from "../../constants/media.js";
+import { dark } from "../../constants/themes.js";
 
 export const Container = styled.header`
   height: 64px;
@@ -11,24 +12,12 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid ${dark.body.border};
 `;
 
 export const Logo = styled.img`
   height: 24px;
   width: auto;
-`;
-
-export const Tag = styled.div`
-  padding: 4px 8px;
-  background: #34d8ac;
-  font-size: 10px;
-  border-radius: 3px;
-  margin-left: 12px;
-  color: #26282c;
-
-  ${media.mobile`
-     font-size: 8px
-   `};
 `;
 
 export const Haven = styled.div`
@@ -38,12 +27,12 @@ export const Haven = styled.div`
   margin-left: 12px;
 `;
 
-export const Brand = styled(Link)`
+export const Brand = styled.a`
   width: auto;
   height: 40px;
   display: flex;
   align-items: center;
-  margin-left: 20px;
+  margin-left: 24px;
   text-decoration: none;
 `;
 

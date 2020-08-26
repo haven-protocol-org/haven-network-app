@@ -7,7 +7,7 @@ import axios from "axios";
 import Layout from "./src/pages/layout";
 import Navigation from "./src/components/navigation/index.js";
 import CirculatingSupply from "./src/components/charts/circulatingSupply";
-import TotalSupply from "./src/components/charts/totalSupply";
+import MarketData from "./src/components/tables/market/index.js";
 
 const info = "https://network-api.havenprotocol.org/api/info";
 const supply = "https://network-api.havenprotocol.org/api/circulationSupply";
@@ -18,11 +18,12 @@ class App extends Component {
     version: "",
     xUSD_Price: "",
     supply_coins: {},
+    coingecko: {},
   };
 
   componentDidMount() {
     axios.get(info).then((response) => {
-      console.log("response", response);
+      console.log("INFO", response);
       // handle success
       const { bc, coingecko, db_lastblock } = response.data;
 
@@ -33,6 +34,7 @@ class App extends Component {
         xusd_supply: db_lastblock.supply.xUSD,
         xhv_supply: db_lastblock.supply.XHV,
         xhv_spot: coingecko.tickers[4].last,
+        coingecko: coingecko,
       });
     });
 
@@ -40,21 +42,27 @@ class App extends Component {
       this.setState({
         supply_coins: response.data.supply_coins,
       });
+      console.log("SUPPLY", response);
     });
+
+    axios
+      .get("https://api.coingecko.com/api/v3/coins/haven")
+      .then((response) => {
+        this.setState({
+          coingecko: response,
+        });
+        console.log("COINGECKO", response);
+      });
   }
 
   render() {
-    const { supply_coins } = this.state;
+    // const { supply_coins } = this.state;
+    // {<CirculatingSupply data={supply_coins} />}
     return (
       <Router>
         <Navigation />
         <Layout state={this.state}>
-          <CirculatingSupply data={supply_coins} />
-          <TotalSupply
-            xusd_price={2.4545}
-            xhv_supply={382599.04}
-            xusd_supply={330359.621}
-          />
+          <MarketData data={this.state.coingecko.market_data} />
         </Layout>
       </Router>
     );

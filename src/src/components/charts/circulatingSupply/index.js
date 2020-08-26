@@ -1,7 +1,7 @@
 // Library Imports
 import React, { Component } from "react";
-import { PropTypes } from "prop-types";
 import { Line } from "react-chartjs-2";
+import moment from "moment";
 
 // https://maketintsandshades.com/#E63E98,40D674,017FDD,ECAF01,F64538,9E37A9
 
@@ -9,13 +9,6 @@ import { Line } from "react-chartjs-2";
 import { Container, Header } from "./styles";
 
 class CirculatingSupply extends Component {
-  mapData = (data) => {
-    for (var i = 0; i < data.length; i++) {
-      console.log(data[i].period);
-      console.log(data[i].XHV);
-      console.log(data[i].xUSD);
-    }
-  };
   render() {
     const { data } = this.props;
     let xhv = [];
@@ -25,7 +18,7 @@ class CirculatingSupply extends Component {
     for (var i = 0; i < data.length; i++) {
       xhv.push(data[i].XHV);
       xusd.push(data[i].xUSD);
-      date.push(data[i].period);
+      date.push(moment(data[i].period).format("MMM Do Y"));
     }
 
     const info = {
@@ -35,7 +28,6 @@ class CirculatingSupply extends Component {
           label: "Haven (XHV)",
           fill: true,
           lineTension: 0.1,
-          backgroundColor: "rgb(232, 75, 159, 0.2)",
           borderColor: "rgb(232, 75, 159, 1)",
           borderCapStyle: "butt",
           borderDash: [],

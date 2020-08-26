@@ -3,7 +3,7 @@ import { dark } from "../../constants/themes.js";
 import media from "../../constants/media.js";
 
 export const Container = styled.div`
-  height: 100vh;
+  height: auto;
   width: 100vw;
   padding-top: 60px;
   background: ${dark.body.background};
@@ -19,17 +19,20 @@ export const Page = styled.div`
   width: 100%;
   max-width: 1140px;
   padding: 20px;
+  display: grid;
+  grid-gap: 20px;
+  padding-bottom: 20px;
 `;
 
 export const Grid = styled.div`
   display: grid;
   grid-gap: 20px;
-  height: 200pxs;
+  height: auto;
   width: 100%;
   grid-template-columns: repeat(4, 1fr);
 
   ${media.tablet`
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   `};
 `;
 
@@ -39,10 +42,10 @@ export const ChartContainer = styled.div`
   height: auto;
   width: 100%;
   background: pink;
-  grid-template-columns:  1fr);
+  grid-template-columns: 1fr;
 
   ${media.tablet`
-    grid-template-columns: 1fr;
+    grid-template-columns:  1fr;
   `};
 `;
 
