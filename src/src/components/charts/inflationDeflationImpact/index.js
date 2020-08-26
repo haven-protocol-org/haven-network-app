@@ -8,7 +8,7 @@ class InflationDeflationImpact extends Component {
   render() {
     return (
       <Container>
-        <Header>Offshore Inflationary Impact</Header>
+        <Header>Offshore Inflation Impact</Header>
         <Placeholder>Placeholder</Placeholder>
       </Container>
     );
