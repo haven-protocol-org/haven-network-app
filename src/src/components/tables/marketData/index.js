@@ -1,6 +1,5 @@
 // Library Imports
 import React, { Component } from "react";
-import moment from "moment";
 
 // Relative Imports
 import { Container, Header, Cell, Key, Value } from "./styles";

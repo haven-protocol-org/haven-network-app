@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import media from "../../constants/media.js";
 import { dark } from "../../constants/themes.js";
 
 export const Container = styled.header`
