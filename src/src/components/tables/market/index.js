@@ -71,29 +71,6 @@ class MarketData extends Component {
           </Cell>
         </Container>
         <Container>
-          <Header>All Time Highs</Header>
-          <Cell>
-            <Key>Price</Key>
-            <Value>${data.ath.usd}</Value>
-          </Cell>
-          <Cell>
-            <Key>Percentage</Key>
-            <Value>
-              {data.ath_change_percentage.usd === undefined
-                ? null
-                : data.ath_change_percentage.usd.toFixed(2) + "%"}
-            </Value>
-          </Cell>
-          <Cell>
-            <Key>Date</Key>
-            <Value>
-              {data.ath_date.usd === null
-                ? null
-                : moment(data.ath_date.usd).format("MMM Do Y")}
-            </Value>
-          </Cell>
-        </Container>
-        <Container>
           <Header>Current Pricing</Header>
           <Cell>
             <Key>Price</Key>
@@ -121,6 +98,30 @@ class MarketData extends Component {
             </Value>
           </Cell>
         </Container>
+        <Container>
+          <Header>All Time Highs</Header>
+          <Cell>
+            <Key>Price</Key>
+            <Value>${data.ath.usd}</Value>
+          </Cell>
+          <Cell>
+            <Key>Percentage</Key>
+            <Value>
+              {data.ath_change_percentage.usd === undefined
+                ? null
+                : data.ath_change_percentage.usd.toFixed(2) + "%"}
+            </Value>
+          </Cell>
+          <Cell>
+            <Key>Date</Key>
+            <Value>
+              {data.ath_date.usd === null
+                ? null
+                : moment(data.ath_date.usd).format("MMM Do Y")}
+            </Value>
+          </Cell>
+        </Container>
+
         <Container>
           <Header>All Time Lows</Header>
           <Cell>

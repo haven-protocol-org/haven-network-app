@@ -73,7 +73,7 @@ class App extends Component {
   };
 
   render() {
-    // const { supply_coins } = this.state;
+    const { firstTabActive, secondTabActive } = this.state;
     // {<CirculatingSupply data={supply_coins} />}
     return (
       <Router>
@@ -82,13 +82,17 @@ class App extends Component {
         <Layout state={this.state}>
           <Tab
             firstTabLabel="Network"
-            firstTabState={this.state.firstTabActive}
+            firstTabState={firstTabActive}
             firstTabClickEvent={this.firstTab}
-            secondTabLabel="Pricing"
-            secondTabState={this.state.secondTabActive}
+            secondTabLabel="Prices"
+            secondTabState={secondTabActive}
             secondTabClickEvent={this.secondTab}
           />
-          <MarketData data={this.state.coingecko.market_data} />
+          {firstTabActive ? (
+            <div>hey</div>
+          ) : (
+            <MarketData data={this.state.coingecko.market_data} />
+          )}
         </Layout>
       </Router>
     );

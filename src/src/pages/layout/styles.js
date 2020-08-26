@@ -4,6 +4,7 @@ import media from "../../constants/media.js";
 
 export const Container = styled.div`
   height: auto;
+  min-height: 100vh;
   width: 100vw;
   padding-top: 60px;
   background: ${dark.body.background};
