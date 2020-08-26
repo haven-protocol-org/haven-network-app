@@ -37,7 +37,6 @@ class App extends Component {
 
   componentDidMount() {
     axios.get(info).then((response) => {
-      console.log("INFO", response);
       // handle success
       const { bc, coingecko, db_lastblock } = response.data;
 
@@ -65,7 +64,6 @@ class App extends Component {
         this.setState({
           coingecko: response,
         });
-        console.log("COINGECKO", response);
       });
   }
 
@@ -84,7 +82,14 @@ class App extends Component {
   };
 
   render() {
-    const { firstTabActive, secondTabActive, supply_coins } = this.state;
+    const {
+      firstTabActive,
+      secondTabActive,
+      supply_coins,
+      coingecko,
+    } = this.state;
+
+    const { market_data } = coingecko;
 
     return (
       <Router>
@@ -109,9 +114,9 @@ class App extends Component {
             </>
           ) : (
             <>
-              <MarketData data={this.state.coingecko.market_data} />
-              <AllTimeHighs data={this.state.coingecko.market_data} />
-              <AllTimeLows data={this.state.coingecko.market_data} />
+              <MarketData data={market_data} />
+              <AllTimeHighs data={market_data} />
+              <AllTimeLows data={market_data} />
             </>
           )}
         </Layout>
