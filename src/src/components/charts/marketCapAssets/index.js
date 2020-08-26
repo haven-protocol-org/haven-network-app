@@ -1,6 +1,5 @@
 // Library Imports
 import React, { Component } from "react";
-import { Line } from "react-chartjs-2";
 
 // Relative Imports
 import { Container, Header, Placeholder } from "./styles";
