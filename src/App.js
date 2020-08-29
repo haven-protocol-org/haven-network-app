@@ -29,7 +29,7 @@ class App extends Component {
     network: "",
     version: "",
     xUSD_Price: "",
-    supply_coins: {},
+    supply: {},
     coingecko: {},
     firstTabActive: true,
     secondTabActive: false,
@@ -48,23 +48,15 @@ class App extends Component {
         xhv_supply: db_lastblock.supply.XHV,
         xhv_spot: coingecko.tickers[4].last,
         coingecko: coingecko,
+        last_block: db_lastblock,
       });
     });
 
     axios.get(supply).then((response) => {
       this.setState({
-        supply_coins: response.data.supply_coins,
+        supply: response.data.supply_coins,
       });
-      console.log("SUPPLY", response);
     });
-
-    axios
-      .get("https://api.coingecko.com/api/v3/coins/haven")
-      .then((response) => {
-        this.setState({
-          coingecko: response,
-        });
-      });
   }
 
   firstTab = () => {
@@ -82,13 +74,7 @@ class App extends Component {
   };
 
   render() {
-    const {
-      firstTabActive,
-      secondTabActive,
-      supply_coins,
-      coingecko,
-    } = this.state;
-
+    const { firstTabActive, secondTabActive, supply, coingecko } = this.state;
     const { market_data } = coingecko;
 
     return (
@@ -105,7 +91,7 @@ class App extends Component {
           />
           {firstTabActive && (
             <>
-              <CirculatingSupply data={supply_coins} />
+              <CirculatingSupply data={supply} />
               <MarketCapAssets />
               <InflationDeflationImpact />
               <SpotAndMovingAveragePercent />
