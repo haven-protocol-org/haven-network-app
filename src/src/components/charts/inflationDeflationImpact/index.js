@@ -30,7 +30,7 @@ class InflationDeflationImpact extends Component {
       datasets: [
         {
           label: "Offshore",
-          fill: true,
+          fill: false,
           lineTension: 0.1,
           borderColor: "rgba(1, 127, 221, 0.8)",
           borderCapStyle: "butt",
@@ -50,7 +50,7 @@ class InflationDeflationImpact extends Component {
         },
         {
           label: "Supply",
-          fill: true,
+          fill: false,
           lineTension: 0.1,
           borderColor: "rgba(64, 214, 116, 0.8)",
           borderCapStyle: "butt",
@@ -78,6 +78,13 @@ class InflationDeflationImpact extends Component {
             responsive: true,
             maintainAspectRatio: true,
             scales: {
+              xAxes: [
+                {
+                  gridLines: {
+                    display: false,
+                  },
+                },
+              ],
               yAxes: [
                 {
                   gridLines: {

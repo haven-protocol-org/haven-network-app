@@ -31,7 +31,7 @@ class SpotAndMovingAveragePrice extends Component {
       datasets: [
         {
           label: "Spot",
-          fill: true,
+          fill: false,
           lineTension: 0.1,
           borderColor: "rgba(1, 127, 221, 0.8)",
           borderCapStyle: "butt",
@@ -51,7 +51,7 @@ class SpotAndMovingAveragePrice extends Component {
         },
         {
           label: "Moving Average",
-          fill: true,
+          fill: false,
           lineTension: 0.1,
           borderColor: "rgba(64, 214, 116, 0.8)",
           borderCapStyle: "butt",
@@ -79,6 +79,13 @@ class SpotAndMovingAveragePrice extends Component {
             responsive: true,
             maintainAspectRatio: true,
             scales: {
+              xAxes: [
+                {
+                  gridLines: {
+                    display: false,
+                  },
+                },
+              ],
               yAxes: [
                 {
                   gridLines: {

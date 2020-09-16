@@ -20,18 +20,17 @@ class MarketCapAssets extends Component {
     let xUSD = [];
     let date = [];
 
-    //
-    // for (var i = 0; i < supply_value.length; i++) {
-    //   xhv.push(supply_value[i][`XHV`]);
-    //   xUSD.push(supply_value[i][`xUSD`]);
-    //   date.push(moment(supply_value[i].period).format("MMM Do"));
-    // }
+    for (var i = 0; i < supply_value.length; i++) {
+      xhv.push(supply_value[i][`XHV`]);
+      xUSD.push(supply_value[i][`xUSD`]);
+      date.push(moment(supply_value[i].period).format("MMM Do"));
+    }
     const info = {
       labels: date,
       datasets: [
         {
           label: "XHV",
-          fill: true,
+          fill: false,
           lineTension: 0.1,
           borderColor: "rgba(1, 127, 221, 0.8)",
           borderCapStyle: "butt",
@@ -51,7 +50,7 @@ class MarketCapAssets extends Component {
         },
         {
           label: "xUSD",
-          fill: true,
+          fill: false,
           lineTension: 0.1,
           borderColor: "rgba(64, 214, 116, 0.8)",
           borderCapStyle: "butt",

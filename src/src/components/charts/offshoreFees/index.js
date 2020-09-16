@@ -35,7 +35,7 @@ class OffshoreFees extends Component {
       datasets: [
         {
           label: "Low",
-          fill: true,
+          fill: false,
           lineTension: 0.1,
           borderColor: "rgba(1, 127, 221, 0.8)",
           borderCapStyle: "butt",
@@ -55,7 +55,7 @@ class OffshoreFees extends Component {
         },
         {
           label: "Normal",
-          fill: true,
+          fill: false,
           lineTension: 0.1,
           borderColor: "rgba(64, 214, 116, 0.8)",
           borderCapStyle: "butt",
@@ -75,7 +75,7 @@ class OffshoreFees extends Component {
         },
         {
           label: "Medium",
-          fill: true,
+          fill: false,
           lineTension: 0.1,
           borderColor: "rgba(236, 175, 1, 0.8)",
           borderCapStyle: "butt",
@@ -95,7 +95,7 @@ class OffshoreFees extends Component {
         },
         {
           label: "High",
-          fill: true,
+          fill: false,
           lineTension: 0.1,
           borderColor: "rgba(246, 69, 56, 0.8)",
           borderCapStyle: "butt",
@@ -124,6 +124,13 @@ class OffshoreFees extends Component {
             responsive: true,
             maintainAspectRatio: true,
             scales: {
+              xAxes: [
+                {
+                  gridLines: {
+                    display: false,
+                  },
+                },
+              ],
               yAxes: [
                 {
                   gridLines: {
