@@ -7,10 +7,13 @@ import { Container, Item } from "./styles";
 const Tab = ({
   firstTabLabel,
   secondTabLabel,
+  thirdTabLabel,
   firstTabState,
   secondTabState,
+  thirdTabState,
   firstTabClickEvent,
   secondTabClickEvent,
+  thirdTabClickEvent,
 }) => {
   return (
     <Container>
@@ -19,6 +22,9 @@ const Tab = ({
       </Item>
       <Item onClick={secondTabClickEvent} active={secondTabState}>
         {secondTabLabel}
+      </Item>
+      <Item onClick={thirdTabClickEvent} active={thirdTabState}>
+        {thirdTabLabel}
       </Item>
     </Container>
   );

@@ -20,6 +20,7 @@ import SpotAndMovingAveragePrice from "./src/components/charts/spotMADeviationPr
 import MarketData from "./src/components/tables/marketData";
 import AllTimeHighs from "./src/components/tables/allTimeHighs";
 import AllTimeLows from "./src/components/tables/allTimeLows";
+import Blockchain from "./src/components/tables/blockchain";
 
 const info = "https://network-api.havenprotocol.org/api/info";
 const supply = "https://network-api.havenprotocol.org/api/circulationSupply";
@@ -34,6 +35,7 @@ class App extends Component {
     blockchain: {},
     firstTabActive: true,
     secondTabActive: false,
+    thirdTabActive: false,
   };
 
   componentDidMount() {
@@ -66,6 +68,7 @@ class App extends Component {
     this.setState({
       firstTabActive: true,
       secondTabActive: false,
+      thirdTabActive: false,
     });
   };
 
@@ -73,6 +76,15 @@ class App extends Component {
     this.setState({
       firstTabActive: false,
       secondTabActive: true,
+      thirdTabActive: false,
+    });
+  };
+
+  thirdTab = () => {
+    this.setState({
+      firstTabActive: false,
+      secondTabActive: false,
+      thirdTabActive: true,
     });
   };
 
@@ -80,9 +92,11 @@ class App extends Component {
     const {
       firstTabActive,
       secondTabActive,
+      thirdTabActive,
       supply,
       coingecko,
       supply_data,
+      blockchain,
     } = this.state;
     const { market_data } = coingecko;
 
@@ -91,12 +105,15 @@ class App extends Component {
         <Navigation />
         <Layout state={this.state}>
           <Tab
-            firstTabLabel="Network"
+            firstTabLabel="Activity"
             firstTabState={firstTabActive}
             firstTabClickEvent={this.firstTab}
             secondTabLabel="Prices"
             secondTabState={secondTabActive}
             secondTabClickEvent={this.secondTab}
+            thirdTabLabel="Protocol"
+            thirdTabState={thirdTabActive}
+            thirdTabClickEvent={this.thirdTab}
           />
           {firstTabActive && (
             <>
@@ -114,6 +131,11 @@ class App extends Component {
               <MarketData data={market_data} />
               <AllTimeHighs data={market_data} />
               <AllTimeLows data={market_data} />
+            </>
+          )}
+          {thirdTabActive && (
+            <>
+              <Blockchain data={blockchain} />
             </>
           )}
         </Layout>
