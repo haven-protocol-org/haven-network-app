@@ -18,7 +18,6 @@ class SpotAndMovingAveragePercent extends Component {
     let xUSD = [];
     let date = [];
 
-    //
     for (var i = 0; i < deviation_ratio.length; i++) {
       spot.push(deviation_ratio[i][`spot_price`]);
       xUSD.push(deviation_ratio[i][`xUSD`]);

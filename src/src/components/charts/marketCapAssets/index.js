@@ -15,7 +15,6 @@ class MarketCapAssets extends Component {
   render() {
     const { supply_value } = this.props.data;
 
-    console.log("SUPPLY VALUE", this.props.data);
     let xhv = [];
     let xUSD = [];
     let total = [];

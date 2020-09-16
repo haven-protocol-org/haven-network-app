@@ -14,7 +14,6 @@ class AllTimeHighs extends Component {
     },
   };
   render() {
-    console.log("Market Data", this.props.data);
     const { data } = this.props;
 
     return (
