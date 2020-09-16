@@ -14,7 +14,6 @@ class SpotAndMovingAveragePercent extends Component {
   };
   render() {
     const { deviation_ratio } = this.props.data;
-    console.log(deviation_ratio);
     let spot = [];
     let xUSD = [];
     let date = [];

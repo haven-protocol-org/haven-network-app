@@ -83,7 +83,6 @@ class App extends Component {
       supply,
       coingecko,
       supply_data,
-      data,
     } = this.state;
     const { market_data } = coingecko;
 
@@ -101,13 +100,13 @@ class App extends Component {
           />
           {firstTabActive && (
             <>
+              <InflationDeflationImpact data={supply_data} />
               <SpotAndMovingAveragePercent data={supply_data} />
               <SpotAndMovingAveragePrice data={supply_data} />
               <OffshoreFees data={supply_data} />
               <CirculatingSupply data={supply} />
 
               <MarketCapAssets />
-              <InflationDeflationImpact />
             </>
           )}
 

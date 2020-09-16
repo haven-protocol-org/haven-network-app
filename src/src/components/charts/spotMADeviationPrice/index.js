@@ -19,7 +19,6 @@ class SpotAndMovingAveragePrice extends Component {
     let average = [];
     let date = [];
 
-    //
     for (var i = 0; i < deviation.length; i++) {
       spot.push(deviation[i][`xUSD-ma`]);
       average.push(deviation[i][`xUSD-spot`]);
