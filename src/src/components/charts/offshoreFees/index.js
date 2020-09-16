@@ -6,28 +6,6 @@ import moment from "moment";
 // Relative Imports
 import { Container, Header } from "./styles";
 
-//Onshore fee
-// Morris.Line({
-//   element: 'shorefee',
-//   data: response['data']['offshore_fee'],
-//   xkey: 'period',
-//   ykeys: response['data']['ykeys_shore_fee'],
-//   labels: response['data']['ykeys_shore_fee'],
-//   lineColors:  ['#908dd9','#8dd996','#d99e57','#ff5447'],
-//   lineWidth:1
-// });
-
-// export const variants = [
-// { name: "pink", base: "E63E98" },
-// { name: "green", base: "40D674" },
-// { name: "blue", base: "017FDD" },
-// { name: "yellow", base: "ECAF01" },
-// { name: "red", base: "F64538" },
-// { name: "purple", base: "9E37A9" },
-// { name: "black", base: "202022" },
-// { name: "grey", base: "E5E5E5" },
-// { name: "cyan", base: "20C5C6" },
-
 class OffshoreFees extends Component {
   static defaultProps = {
     data: {
@@ -45,7 +23,6 @@ class OffshoreFees extends Component {
 
     //
     for (var i = 0; i < offshore_fee.length; i++) {
-      console.log("ITERATE", offshore_fee[i].period);
       low.push(offshore_fee[i][`xUSD-low`]);
       normal.push(offshore_fee[i][`xUSD-normal`]);
       medium.push(offshore_fee[i][`xUSD-medium`]);

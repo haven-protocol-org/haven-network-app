@@ -101,13 +101,13 @@ class App extends Component {
           />
           {firstTabActive && (
             <>
+              <SpotAndMovingAveragePrice data={supply_data} />
               <OffshoreFees data={supply_data} />
               <CirculatingSupply data={supply} />
 
               <MarketCapAssets />
               <InflationDeflationImpact />
               <SpotAndMovingAveragePercent />
-              <SpotAndMovingAveragePrice />
             </>
           )}
 
