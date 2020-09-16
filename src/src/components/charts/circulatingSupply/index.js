@@ -25,8 +25,8 @@ class CirculatingSupply extends Component {
       labels: date,
       datasets: [
         {
-          label: "Haven (XHV)",
-          fill: false,
+          label: "XHV",
+          fill: true,
           lineTension: 0.1,
           borderColor: "rgba(1, 127, 221, 0.8)",
           borderCapStyle: "butt",
@@ -45,8 +45,8 @@ class CirculatingSupply extends Component {
           data: xhv,
         },
         {
-          label: "USD (xUSD)",
-          fill: false,
+          label: "xUSD",
+          fill: true,
           lineTension: 0.1,
           borderColor: "rgba(64, 214, 116, 0.8)",
           borderCapStyle: "butt",
