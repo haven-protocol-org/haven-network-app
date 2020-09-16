@@ -100,13 +100,12 @@ class App extends Component {
           />
           {firstTabActive && (
             <>
+              <MarketCapAssets data={supply_data} />
               <InflationDeflationImpact data={supply_data} />
               <SpotAndMovingAveragePercent data={supply_data} />
               <SpotAndMovingAveragePrice data={supply_data} />
               <OffshoreFees data={supply_data} />
               <CirculatingSupply data={supply} />
-
-              <MarketCapAssets />
             </>
           )}
 

@@ -3,7 +3,7 @@ import { dark } from "../../../constants/themes.js";
 
 export const Container = styled.div`
   height: auto;
-
+  width: auto;
   background: ${dark.body.foreground};
   margin-bottom: 20px;
   border-radius: 4px;
