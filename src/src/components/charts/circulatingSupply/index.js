@@ -18,7 +18,7 @@ class CirculatingSupply extends Component {
     for (var i = 0; i < data.length; i++) {
       xhv.push(data[i].XHV);
       xusd.push(data[i].xUSD);
-      date.push(moment(data[i].period).format("MMM Do Y"));
+      date.push(moment(data[i].period).format("MMM Do"));
     }
 
     const info = {

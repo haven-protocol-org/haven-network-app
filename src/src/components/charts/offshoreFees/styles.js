@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { dark } from "../../../constants/themes.js";
 
 export const Container = styled.div`
-  height: 500px;
+  height: auto;
   width: 100%;
   background: ${dark.body.foreground};
   border-radius: 4px;

@@ -31,16 +31,17 @@ class App extends Component {
     xUSD_Price: "",
     supply: {},
     coingecko: {},
+    blockchain: {},
     firstTabActive: true,
     secondTabActive: false,
   };
 
   componentDidMount() {
     axios.get(info).then((response) => {
-      // handle success
       const { bc, coingecko, db_lastblock } = response.data;
 
       this.setState({
+        data: response.data,
         version: bc.result.version,
         network: bc.result.nettype,
         xusd_price: db_lastblock.pricing_record.xUSD,
@@ -48,6 +49,7 @@ class App extends Component {
         xhv_supply: db_lastblock.supply.XHV,
         xhv_spot: coingecko.tickers[4].last,
         coingecko: coingecko,
+        blockchain: bc,
         last_block: db_lastblock,
       });
     });
@@ -55,6 +57,7 @@ class App extends Component {
     axios.get(supply).then((response) => {
       this.setState({
         supply: response.data.supply_coins,
+        supply_data: response.data,
       });
     });
   }
@@ -74,7 +77,14 @@ class App extends Component {
   };
 
   render() {
-    const { firstTabActive, secondTabActive, supply, coingecko } = this.state;
+    const {
+      firstTabActive,
+      secondTabActive,
+      supply,
+      coingecko,
+      supply_data,
+      data,
+    } = this.state;
     const { market_data } = coingecko;
 
     return (
@@ -91,14 +101,16 @@ class App extends Component {
           />
           {firstTabActive && (
             <>
+              <OffshoreFees data={supply_data} />
               <CirculatingSupply data={supply} />
+
               <MarketCapAssets />
               <InflationDeflationImpact />
               <SpotAndMovingAveragePercent />
               <SpotAndMovingAveragePrice />
-              <OffshoreFees />
             </>
           )}
+
           {secondTabActive && (
             <>
               <MarketData data={market_data} />
