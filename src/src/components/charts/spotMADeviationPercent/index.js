@@ -37,7 +37,7 @@ class SpotAndMovingAveragePercent extends Component {
           borderDashOffset: 0.0,
           borderJoinStyle: "miter",
           pointBorderColor: "rgba(114, 137, 218, 1)",
-          pointBackgroundColor: "#fff",
+          pointBackgroundColor: "rgba(255, 255, 255, 0.5)",
           pointBorderWidth: 1,
           pointHoverRadius: 5,
           pointHoverBackgroundColor: "rgba(114, 137, 218, 0.8)",
