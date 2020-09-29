@@ -9,6 +9,7 @@ class Layout extends Component {
   render() {
     const { xusd_price, xusd_supply, xhv_supply } = this.props.state;
     const network_calc = xusd_price * xhv_supply + xusd_supply;
+    console.log(this.props.state);
 
     const formatter = new Intl.NumberFormat("en-US", {
       style: "currency",

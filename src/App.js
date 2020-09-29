@@ -12,9 +12,10 @@ import Tab from "./src/components/tab/index.js";
 import CirculatingSupply from "./src/components/charts/circulatingSupply";
 import MarketCapAssets from "./src/components/charts/marketCapAssets";
 import InflationDeflationImpact from "./src/components/charts/inflationDeflationImpact";
-import OffshoreFees from "./src/components/charts/offshoreFees";
 import SpotAndMovingAveragePercent from "./src/components/charts/spotMADeviationPercent";
 import SpotAndMovingAveragePrice from "./src/components/charts/spotMADeviationPrice";
+// import OffshoreFees from "./src/components/charts/offshoreFees";
+// {<OffshoreFees data={supply_data} />}
 
 // Tables
 import MarketData from "./src/components/tables/marketData";
@@ -121,7 +122,7 @@ class App extends Component {
               <InflationDeflationImpact data={supply_data} />
               <SpotAndMovingAveragePercent data={supply_data} />
               <SpotAndMovingAveragePrice data={supply_data} />
-              <OffshoreFees data={supply_data} />
+
               <CirculatingSupply data={supply} />
             </>
           )}
