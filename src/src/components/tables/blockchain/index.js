@@ -37,13 +37,14 @@ class Blockchain extends Component {
           <Key>Difficulty</Key>
           <Value>{result.difficulty}</Value>
         </Cell>
-        <Cell>
-          <Key>Offline</Key>
-          <Value>{result.offline ? "True" : "False"}</Value>
-        </Cell>
+
         <Cell>
           <Key>Transaction Count</Key>
           <Value>{result.tx_count}</Value>
+        </Cell>
+        <Cell>
+          <Key>Online</Key>
+          <Value>{result.offline ? "No" : "Yes"}</Value>
         </Cell>
       </Container>
     );
