@@ -29,10 +29,12 @@ class MarketData extends Component {
           <Value>${data.total_volume.usd}</Value>
         </Cell>
         <Cell>
-          <Key>24H High / Low</Key>
-          <Value>
-            ${data.high_24h.usd} / ${data.low_24h.usd}
-          </Value>
+          <Key>24H High</Key>
+          <Value>${data.high_24h.usd}</Value>
+        </Cell>
+        <Cell>
+          <Key>24H Low</Key>
+          <Value>${data.low_24h.usd}</Value>
         </Cell>
         <Cell>
           <Key>24h Change</Key>
