@@ -16,13 +16,13 @@ export const Container = styled.header`
 
 export const Logo = styled.img`
   height: 24px;
-  width: auto;
+  width: 20px;
 `;
 
 export const Haven = styled.div`
   color: white;
   font-size: 20px;
-  font-family: "Inter-Bold";
+  font-weight: bold;
   margin-left: 12px;
 `;
 

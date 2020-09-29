@@ -11,7 +11,7 @@ class Navigation extends Component {
       <Container>
         <Brand href="https://havenprotocol.org/">
           <Logo src={Icon} />
-          <Haven>HAVEN </Haven>
+          <Haven>HAVEN</Haven>
         </Brand>
       </Container>
     );
