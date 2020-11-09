@@ -12,35 +12,36 @@ class Blockchain extends Component {
   };
   render() {
     const { result } = this.props.data;
+    const gb = result.database_size / 1073741274;
 
     return (
       <Container>
         <Header>Protocol</Header>
         <Cell>
           <Key>Height</Key>
-          <Value>{result.height}</Value>
+          <Value>{result.height.toLocaleString()}</Value>
         </Cell>
         <Cell>
           <Key>Block Size Limit</Key>
-          <Value>{result.block_size_limit}</Value>
+          <Value>{result.block_size_limit.toLocaleString()}</Value>
         </Cell>
         <Cell>
           <Key>Block Size Median</Key>
-          <Value>{result.block_size_median}</Value>
+          <Value>{result.block_size_median.toLocaleString()}</Value>
         </Cell>
 
         <Cell>
           <Key>Blockchain Size</Key>
-          <Value>{result.database_size}</Value>
+          <Value>{gb.toFixed(2).toLocaleString() + "GB"}</Value>
         </Cell>
         <Cell>
           <Key>Difficulty</Key>
-          <Value>{result.difficulty}</Value>
+          <Value>{result.difficulty.toLocaleString()}</Value>
         </Cell>
 
         <Cell>
           <Key>Transaction Count</Key>
-          <Value>{result.tx_count}</Value>
+          <Value>{result.tx_count.toLocaleString()}</Value>
         </Cell>
         <Cell>
           <Key>Online</Key>

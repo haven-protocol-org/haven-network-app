@@ -16,6 +16,14 @@ class MarketData extends Component {
   };
   render() {
     const { data } = this.props;
+    var formatter = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+
+      // These options are needed to round to whole numbers if that's what you want.
+      //minimumFractionDigits: 0,
+      //maximumFractionDigits: 0,
+    });
 
     return (
       <Container>
@@ -26,7 +34,7 @@ class MarketData extends Component {
         </Cell>
         <Cell>
           <Key>Total Volume</Key>
-          <Value>${data.total_volume.usd}</Value>
+          <Value>{formatter.format(data.total_volume.usd)}</Value>
         </Cell>
         <Cell>
           <Key>24H High</Key>

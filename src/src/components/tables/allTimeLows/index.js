@@ -22,7 +22,9 @@ class AllTimeLows extends Component {
         <Cell>
           <Key>Price</Key>
           <Value>
-            {data.atl.usd === undefined ? null : data.atl.usd.toFixed(2)}
+            {data.atl.usd === undefined
+              ? null
+              : `${"$" + data.atl.usd.toFixed(2)}`}
           </Value>
         </Cell>
         <Cell>
