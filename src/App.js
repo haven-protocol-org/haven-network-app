@@ -42,7 +42,6 @@ class App extends Component {
   componentDidMount() {
     axios.get(info).then((response) => {
       const { bc, coingecko, db_lastblock } = response.data;
-      console.log("coingecko", coingecko);
 
       this.setState({
         data: response.data,
@@ -51,7 +50,7 @@ class App extends Component {
         xusd_price: db_lastblock.pricing_record.xUSD,
         xusd_supply: db_lastblock.supply.xUSD,
         xhv_supply: db_lastblock.supply.XHV,
-        xhv_spot: coingecko.tickers[3].last,
+        xhv_spot: coingecko.tickers[1].last,
         coingecko: coingecko,
         blockchain: bc,
         last_block: db_lastblock,
