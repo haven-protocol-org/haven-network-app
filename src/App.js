@@ -21,7 +21,7 @@ import AllTimeHighs from "./src/components/tables/allTimeHighs";
 import AllTimeLows from "./src/components/tables/allTimeLows";
 import Blockchain from "./src/components/tables/blockchain";
 
-// Endpoints
+// API Endpoints
 const info = "https://network-api.havenprotocol.org/api/info";
 const supply = "https://network-api.havenprotocol.org/api/circulationSupply";
 
@@ -41,7 +41,6 @@ class App extends Component {
   componentDidMount() {
     axios.get(info).then((response) => {
       const { bc, coingecko, db_lastblock } = response.data;
-      console.log("DB,", db_lastblock);
 
       this.setState({
         data: response.data,
@@ -122,11 +121,9 @@ class App extends Component {
               <InflationDeflationImpact data={supply_data} />
               <SpotAndMovingAveragePercent data={supply_data} />
               <SpotAndMovingAveragePrice data={supply_data} />
-
               <CirculatingSupply data={supply} />
             </>
           )}
-
           {secondTabActive && (
             <>
               <MarketData data={market_data} />
@@ -134,11 +131,7 @@ class App extends Component {
               <AllTimeLows data={market_data} />
             </>
           )}
-          {thirdTabActive && (
-            <>
-              <Blockchain data={blockchain} />
-            </>
-          )}
+          {thirdTabActive && <Blockchain data={blockchain} />}
         </Layout>
       </Router>
     );
