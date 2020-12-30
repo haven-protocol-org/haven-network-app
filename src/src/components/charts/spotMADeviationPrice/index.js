@@ -20,9 +20,8 @@ class SpotAndMovingAveragePrice extends Component {
     let date = [];
 
     for (var i = 0; i < deviation.length; i++) {
-      spot.push(deviation[i][`xUSD-ma`]);
-      average.push(deviation[i][`xUSD-spot`]);
-
+      average.push(deviation[i][`xUSD-ma`]);
+      spot.push(deviation[i][`xUSD-spot`]);
       date.push(moment(deviation[i].period).format("MMM Do"));
     }
 
@@ -30,7 +29,7 @@ class SpotAndMovingAveragePrice extends Component {
       labels: date,
       datasets: [
         {
-          label: "Spot",
+          label: "Moving Average",
           fill: true,
           lineTension: 0.1,
           borderColor: "rgba(1, 127, 221, 0.8)",
@@ -47,10 +46,10 @@ class SpotAndMovingAveragePrice extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: spot,
+          data: average,
         },
         {
-          label: "Moving Average",
+          label: "Spot Price",
           fill: true,
           lineTension: 0.1,
           borderColor: "rgba(64, 214, 116, 0.8)",
@@ -67,7 +66,7 @@ class SpotAndMovingAveragePrice extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: average,
+          data: spot,
         },
       ],
     };
