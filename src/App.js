@@ -14,8 +14,6 @@ import MarketCapAssets from "./src/components/charts/marketCapAssets";
 import InflationDeflationImpact from "./src/components/charts/inflationDeflationImpact";
 import SpotAndMovingAveragePercent from "./src/components/charts/spotMADeviationPercent";
 import SpotAndMovingAveragePrice from "./src/components/charts/spotMADeviationPrice";
-// import OffshoreFees from "./src/components/charts/offshoreFees";
-// {<OffshoreFees data={supply_data} />}
 
 // Tables
 import MarketData from "./src/components/tables/marketData";
@@ -23,6 +21,7 @@ import AllTimeHighs from "./src/components/tables/allTimeHighs";
 import AllTimeLows from "./src/components/tables/allTimeLows";
 import Blockchain from "./src/components/tables/blockchain";
 
+// Endpoints
 const info = "https://network-api.havenprotocol.org/api/info";
 const supply = "https://network-api.havenprotocol.org/api/circulationSupply";
 
@@ -42,6 +41,7 @@ class App extends Component {
   componentDidMount() {
     axios.get(info).then((response) => {
       const { bc, coingecko, db_lastblock } = response.data;
+      console.log("DB,", db_lastblock);
 
       this.setState({
         data: response.data,
