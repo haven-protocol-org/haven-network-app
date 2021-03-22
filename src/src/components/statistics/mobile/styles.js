@@ -7,11 +7,10 @@ export const Grid = styled.div`
   grid-gap: 20px;
   width: auto;
   display: none;
+  overflow: hidden;
 
   ${media.mobile`
     display: inline;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
   `};
 `;
 
@@ -21,9 +20,17 @@ export const Statistic = styled.div`
   justify-content: center;
   align-items: center;
   height: 120px;
-
+  overflow: hidden;
   background: ${dark.body.foreground};
   border: 1px solid ${dark.body.border};
+
+  &:nth-child(1) {
+    border-bottom: none;
+    border-radius: 4px 4px 0px 0px;
+  }
+  &:nth-child(2) {
+    border-radius: 0px 0px 4px 4px;
+  }
 `;
 
 export const Data = styled.div`
@@ -31,17 +38,23 @@ export const Data = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  &:nth-child(1) {
+    border-right: 1px solid ${dark.body.border};
+  }
 `;
 
 export const Label = styled.div`
-  font-size: 13px;
+  font-size: 11px;
   line-height: 1.5em;
   color: ${dark.type.secondary};
   font-family: "Inter", sans-serif;
 `;
 
 export const Value = styled.div`
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1.5em;
   font-weight: 600;
   color: ${dark.type.primary};

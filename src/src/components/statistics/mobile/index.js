@@ -16,6 +16,8 @@ const MobileStatistics = ({ xUSD, xhv_circ, xusd_circ, network_value }) => {
           <Value>{xhv_circ}</Value>
           <Label>XHV Circulating Supply</Label>
         </Data>
+      </Statistic>
+      <Statistic>
         <Data>
           <Value>{xusd_circ}</Value>
           <Label>xUSD Circulating Supply</Label>
