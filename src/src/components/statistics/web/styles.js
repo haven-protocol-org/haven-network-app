@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { dark } from "../../constants/themes.js";
-import media from "../../constants/media.js";
+import { dark } from "../../../constants/themes.js";
+import media from "../../../constants/media.js";
 
 export const Grid = styled.div`
   display: grid;

@@ -1,6 +1,6 @@
 // Library Imports
 import React, { Component } from "react";
-import Statistics from "../../components/statistics/index.js";
+import Statistics from "../../components/statistics/web/index.js";
 
 // Relative Imports
 import { Container, Page } from "./styles";
