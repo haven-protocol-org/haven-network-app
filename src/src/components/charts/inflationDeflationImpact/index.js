@@ -29,7 +29,7 @@ class InflationDeflationImpact extends Component {
       labels: date,
       datasets: [
         {
-          label: "With Offshore",
+          label: "Current Supply",
           fill: true,
           lineTension: 0.1,
           borderColor: "rgba(64, 214, 116, 0.8)",
@@ -49,7 +49,7 @@ class InflationDeflationImpact extends Component {
           data: offshore,
         },
         {
-          label: "Without Offshore",
+          label: "Standard Emissions",
           fill: true,
           lineTension: 0.1,
           borderColor: "rgba(114, 137, 218, 0.8)",
