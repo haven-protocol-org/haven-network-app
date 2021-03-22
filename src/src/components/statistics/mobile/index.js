@@ -4,7 +4,7 @@ import React from "react";
 // Relative Imports
 import { Data, Grid, Value, Label, Statistic } from "./styles";
 
-const Statistics = ({ xUSD, xhv_circ, xusd_circ, network_value }) => {
+const MobileStatistics = ({ xUSD, xhv_circ, xusd_circ, network_value }) => {
   return (
     <Grid>
       <Statistic>
@@ -12,20 +12,14 @@ const Statistics = ({ xUSD, xhv_circ, xusd_circ, network_value }) => {
           <Value>${xUSD}</Value>
           <Label>Haven 24h MA Price</Label>
         </Data>
-      </Statistic>
-      <Statistic>
         <Data>
           <Value>{xhv_circ}</Value>
           <Label>XHV Circulating Supply</Label>
         </Data>
-      </Statistic>
-      <Statistic>
         <Data>
           <Value>{xusd_circ}</Value>
           <Label>xUSD Circulating Supply</Label>
         </Data>
-      </Statistic>
-      <Statistic>
         <Data>
           <Value>{network_value}</Value>
           <Label>Total Network Value</Label>
@@ -35,4 +29,4 @@ const Statistics = ({ xUSD, xhv_circ, xusd_circ, network_value }) => {
   );
 };
 
-export default Statistics;
+export default MobileStatistics;

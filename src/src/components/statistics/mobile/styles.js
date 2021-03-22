@@ -5,16 +5,13 @@ import media from "../../../constants/media.js";
 export const Grid = styled.div`
   display: grid;
   grid-gap: 20px;
-  height: auto;
   width: auto;
-  grid-template-columns: repeat(4, 1fr);
-
-  ${media.desktop`
-    grid-template-columns: 1fr 1fr;
-  `};
+  display: none;
 
   ${media.mobile`
-    display: none;
+    display: inline;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
   `};
 `;
 
@@ -24,7 +21,7 @@ export const Statistic = styled.div`
   justify-content: center;
   align-items: center;
   height: 120px;
-  border-radius: 4px;
+
   background: ${dark.body.foreground};
   border: 1px solid ${dark.body.border};
 `;

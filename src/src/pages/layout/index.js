@@ -1,6 +1,7 @@
 // Library Imports
 import React, { Component } from "react";
 import Statistics from "../../components/statistics/web/index.js";
+import MobileStatistics from "../../components/statistics/mobile/index.js";
 
 // Relative Imports
 import { Container, Page } from "./styles";
@@ -28,6 +29,12 @@ class Layout extends Component {
     return (
       <Container>
         <Page>
+          <MobileStatistics
+            xUSD={xUSD}
+            xhv_circ={xhv_circ}
+            xusd_circ={xusd_circ}
+            network_value={network_value}
+          />
           <Statistics
             xUSD={xUSD}
             xhv_circ={xhv_circ}
