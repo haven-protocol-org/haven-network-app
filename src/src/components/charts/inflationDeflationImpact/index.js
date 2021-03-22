@@ -18,7 +18,6 @@ class InflationDeflationImpact extends Component {
     let supply = [];
     let date = [];
 
-    //
     for (var i = 0; i < organic_coins.length; i++) {
       offshore.push(organic_coins[i][`offshore`]);
       supply.push(organic_coins[i][`supply`]);
