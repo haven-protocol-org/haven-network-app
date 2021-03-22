@@ -14,7 +14,7 @@ export const Grid = styled.div`
   `};
 
   ${media.mobile`
-    grid-template-columns: 1fr;
+    display: none;
   `};
 `;
 
