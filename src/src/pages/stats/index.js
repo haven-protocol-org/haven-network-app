@@ -6,7 +6,48 @@ import MobileStatistics from "../../components/statistics/mobile/index.js";
 // Relative Imports
 import { Container, Page } from "./styles";
 
-class Layout extends Component {
+class Stats extends Component {
+  static defaultProps = {
+    supply: {},
+  };
+
+  // componentDidMount() {
+  //   const map = this.props.supply.map((i) => {
+  //     return console.log(i);
+  //   });
+  //
+  //   console.log("MAP", map);
+  // }
+
+  handleData = () => {
+    const { supply } = this.props;
+
+    if (supply.length > 0) {
+      supply.map((i) => {
+        const {
+          XHV,
+          xAG,
+          // xAU,
+          // xAUD,
+          // xBTC,
+          // xCAD,
+          // xCHF,
+          // xCNY,
+          // xEUR,
+          // xGBP,
+          // xJPY,
+          // xNOK,
+          // xNZD,
+        } = i;
+        console.log(typeof XHV);
+
+        return console.log(XHV);
+      });
+    } else {
+      console.log("FALSE");
+    }
+  };
+
   render() {
     const { xusd_price, xusd_supply, xhv_supply } = this.props.state;
     const network_calc = xusd_price * xhv_supply + xusd_supply;
@@ -29,6 +70,7 @@ class Layout extends Component {
     return (
       <Container>
         <Page>
+          {this.props.children}
           <MobileStatistics
             xUSD={xUSD}
             xhv_circ={xhv_circ}
@@ -41,11 +83,10 @@ class Layout extends Component {
             xusd_circ={xusd_circ}
             network_value={network_value}
           />
-          {this.props.children}
         </Page>
       </Container>
     );
   }
 }
 
-export default Layout;
+export default Stats;

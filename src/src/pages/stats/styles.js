@@ -2,22 +2,18 @@ import styled from "styled-components";
 import { dark } from "../../constants/themes.js";
 
 export const Container = styled.div`
-  height: auto;
-  min-height: 100vh;
-  width: 100vw;
-  padding-top: 60px;
-  background: ${dark.body.background};
+  height: 100%;
+  width: 100%;
+  background: palegreen;
   font-family: "Inter", sans-serif;
   display: flex;
-  justify-content: center;
-  overflow: scroll;
   padding-bottom: 40px;
+  postition: fixed;
 `;
 
 export const Page = styled.div`
   height: 100%;
   width: 100%;
-  max-width: 1140px;
   padding: 20px;
   display: grid;
   grid-gap: 20px;

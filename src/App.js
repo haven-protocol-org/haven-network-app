@@ -1,12 +1,15 @@
 // Primary Imports
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from "axios";
 
 // Components
-import Layout from "./src/pages/layout";
+import Layout from "./src/layout";
+import Stats from "./src/pages/stats";
 import Navigation from "./src/components/navigation/index.js";
 import Tab from "./src/components/tab/index.js";
+import Sidebar from "./src/components/sidebar/index.js";
+import Header from "./src/components/header/index.js";
 
 // Charts
 import CirculatingSupply from "./src/components/charts/circulatingSupply";
@@ -21,9 +24,21 @@ import AllTimeHighs from "./src/components/tables/allTimeHighs";
 import AllTimeLows from "./src/components/tables/allTimeLows";
 import Blockchain from "./src/components/tables/blockchain";
 
-// API Endpoints
-const info = "https://network-api.havenprotocol.org/api/info";
-const supply = "https://network-api.havenprotocol.org/api/circulationSupply";
+// Pages
+import Overview from "./src/pages/overview";
+import Assets from "./src/pages/assets";
+// import History from "./src/pages/history";
+// import Protocol from "./src/pages/protocol";
+
+// Testnet API Endpoints
+const haven = "https://network-api.havenprotocol.org/";
+const testnet = "api-testnet/";
+const mainnet = "api/";
+const info = "info";
+const supply = "circulationSupply";
+
+const getInfo = `${haven}${testnet}${info}`;
+const getSupply = `${haven}${testnet}${supply}`;
 
 class App extends Component {
   state = {
@@ -39,7 +54,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    axios.get(info).then((response) => {
+    axios.get(getInfo).then((response) => {
       const { bc, coingecko, db_lastblock } = response.data;
 
       this.setState({
@@ -56,7 +71,7 @@ class App extends Component {
       });
     });
 
-    axios.get(supply).then((response) => {
+    axios.get(getSupply).then((response) => {
       this.setState({
         supply: response.data.supply_coins,
         supply_data: response.data,
@@ -103,35 +118,12 @@ class App extends Component {
     return (
       <Router>
         <Navigation />
-        <Layout state={this.state}>
-          <Tab
-            firstTabLabel="Activity"
-            firstTabState={firstTabActive}
-            firstTabClickEvent={this.firstTab}
-            secondTabLabel="Prices"
-            secondTabState={secondTabActive}
-            secondTabClickEvent={this.secondTab}
-            thirdTabLabel="Protocol"
-            thirdTabState={thirdTabActive}
-            thirdTabClickEvent={this.thirdTab}
-          />
-          {firstTabActive && (
-            <>
-              <MarketCapAssets data={supply_data} />
-              <InflationDeflationImpact data={supply_data} />
-              <SpotAndMovingAveragePercent data={supply_data} />
-              <SpotAndMovingAveragePrice data={supply_data} />
-              <CirculatingSupply data={supply} />
-            </>
-          )}
-          {secondTabActive && (
-            <>
-              <MarketData data={market_data} />
-              <AllTimeHighs data={market_data} />
-              <AllTimeLows data={market_data} />
-            </>
-          )}
-          {thirdTabActive && <Blockchain data={blockchain} />}
+        <Layout>
+          <Sidebar />
+          <Router>
+            <Route path="/" exact component={Overview} />
+            <Route path="/assets" exact component={Assets} />
+          </Router>
         </Layout>
       </Router>
     );
@@ -139,3 +131,39 @@ class App extends Component {
 }
 
 export default App;
+
+// <Layout>
+//   <Sidebar />
+//
+//   <Stats state={this.state} supply={supply}>
+//     <Header title="Overview" description="Overview of network" />
+//     <Tab
+//       firstTabLabel="Activity"
+//       firstTabState={firstTabActive}
+//       firstTabClickEvent={this.firstTab}
+//       secondTabLabel="Prices"
+//       secondTabState={secondTabActive}
+//       secondTabClickEvent={this.secondTab}
+//       thirdTabLabel="Protocol"
+//       thirdTabState={thirdTabActive}
+//       thirdTabClickEvent={this.thirdTab}
+//     />
+//     {firstTabActive && (
+//       <>
+//         <MarketCapAssets data={supply_data} />
+//         <InflationDeflationImpact data={supply_data} />
+//         <SpotAndMovingAveragePercent data={supply_data} />
+//         <SpotAndMovingAveragePrice data={supply_data} />
+//         <CirculatingSupply data={supply} />
+//       </>
+//     )}
+//     {secondTabActive && (
+//       <>
+//         <MarketData data={market_data} />
+//         <AllTimeHighs data={market_data} />
+//         <AllTimeLows data={market_data} />
+//       </>
+//     )}
+//     {thirdTabActive && <Blockchain data={blockchain} />}
+//   </Stats>
+// </Layout>;
