@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
 import moment from "moment";
+import { connect } from "react-redux";
 
 // Relative Imports
 import { Container, Header } from "./styles";
@@ -13,19 +14,22 @@ class MarketCapAssets extends Component {
     },
   };
   render() {
-    const { supply_value } = this.props.data;
+    const { supply_value } = this.props.supply;
 
     let xhv = [];
     let xUSD = [];
     let total = [];
     let date = [];
 
-    for (var i = 0; i < supply_value.length; i++) {
-      xhv.push(supply_value[i][`XHV`]);
-      xUSD.push(supply_value[i][`xUSD`]);
-      total.push(supply_value[i][`xUSD`] + supply_value[i][`XHV`]);
-      date.push(moment(supply_value[i].period).format("MMM Do"));
+    if (supply_value !== undefined) {
+      for (var i = 0; i < supply_value.length; i++) {
+        xhv.push(supply_value[i][`XHV`]);
+        xUSD.push(supply_value[i][`xUSD`]);
+        total.push(supply_value[i][`xUSD`] + supply_value[i][`XHV`]);
+        date.push(moment(supply_value[i].period).format("MMM Do"));
+      }
     }
+
     const info = {
       labels: date,
       datasets: [
@@ -99,7 +103,7 @@ class MarketCapAssets extends Component {
           options={{
             responsive: true,
             stacked: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             scales: {
               xAxes: [
                 {
@@ -124,4 +128,8 @@ class MarketCapAssets extends Component {
   }
 }
 
-export default MarketCapAssets;
+export const mapStateToProps = (state) => ({
+  supply: state.getSupply,
+});
+
+export default connect(mapStateToProps)(MarketCapAssets);

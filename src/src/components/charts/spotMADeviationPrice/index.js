@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
 import moment from "moment";
+import { connect } from "react-redux";
 
 // Relative Imports
 import { Container, Header } from "./styles";
@@ -13,16 +14,18 @@ class SpotAndMovingAveragePrice extends Component {
     },
   };
   render() {
-    const { deviation } = this.props.data;
+    const { deviation } = this.props.supply;
 
     let spot = [];
     let average = [];
     let date = [];
 
-    for (var i = 0; i < deviation.length; i++) {
-      average.push(deviation[i][`xUSD-ma`]);
-      spot.push(deviation[i][`xUSD-spot`]);
-      date.push(moment(deviation[i].period).format("MMM Do"));
+    if (deviation !== undefined) {
+      for (var i = 0; i < deviation.length; i++) {
+        average.push(deviation[i][`xUSD-ma`]);
+        spot.push(deviation[i][`xUSD-spot`]);
+        date.push(moment(deviation[i].period).format("MMM Do"));
+      }
     }
 
     const info = {
@@ -100,5 +103,8 @@ class SpotAndMovingAveragePrice extends Component {
     );
   }
 }
+export const mapStateToProps = (state) => ({
+  supply: state.getSupply,
+});
 
-export default SpotAndMovingAveragePrice;
+export default connect(mapStateToProps)(SpotAndMovingAveragePrice);

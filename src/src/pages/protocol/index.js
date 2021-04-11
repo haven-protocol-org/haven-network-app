@@ -3,17 +3,14 @@ import React from "react";
 
 // Relative Imports
 import { Container } from "./styles";
-import Blocks from "../../_layout/_blocks/index.js";
 import Header from "../../components/header/index.js";
+import Blockchain from "../../components/tables/blockchain";
 
 const Assets = () => {
   return (
     <Container>
-      <Header title="Protocol" description="..." />
-      <Blocks />
-      <Blocks />
-      <Blocks />
-      <Blocks />
+      <Header title="Protocol" description="Protocol statistics" />
+      <Blockchain />
     </Container>
   );
 };

@@ -70,7 +70,6 @@ class Stats extends Component {
     return (
       <Container>
         <Page>
-          {this.props.children}
           <MobileStatistics
             xUSD={xUSD}
             xhv_circ={xhv_circ}

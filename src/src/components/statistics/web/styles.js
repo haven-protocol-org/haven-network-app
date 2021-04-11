@@ -6,7 +6,7 @@ export const Grid = styled.div`
   display: grid;
   grid-gap: 20px;
   height: auto;
-  width: auto;
+  width: 100%;
   grid-template-columns: repeat(4, 1fr);
 
   ${media.desktop`

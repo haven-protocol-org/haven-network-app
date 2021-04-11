@@ -3,22 +3,31 @@ import React from "react";
 
 // Relative Imports
 import { Container } from "./styles";
-import Blocks from "../../_layout/_blocks/index.js";
-import Header from "../../components/header/index.js";
+import Header from "../../components/header";
 
 // Charts
+import MobileStatistics from "../../components/statistics/mobile";
+import WebStatistic from "../../components/statistics/web";
 import CirculatingSupply from "../../components/charts/circulatingSupply";
-import InflationDeflationImpact from "../../components/charts/inflationDeflationImpact/index.js";
+import InflationDeflationImpact from "../../components/charts/inflationDeflationImpact";
+import MarketCapAssets from "../../components/charts/marketCapAssets";
+import SpotAndMovingAveragePercent from "../../components/charts/spotMADeviationPercent";
+import SpotAndMovingAveragePrice from "../../components/charts/spotMADeviationPrice";
 
 const Assets = () => {
   return (
     <Container>
-      <Header title="Overview" description="..." />
-      <CirculatingSupply />
+      <Header
+        title="Overview"
+        description="General statistics about Haven Protocol"
+      />
+      <WebStatistic />
+      <MobileStatistics />
+      <MarketCapAssets />
       <InflationDeflationImpact />
-      <Blocks />
-      <Blocks />
-      <Blocks />
+      <SpotAndMovingAveragePercent />
+      <SpotAndMovingAveragePrice />
+      <CirculatingSupply />
     </Container>
   );
 };

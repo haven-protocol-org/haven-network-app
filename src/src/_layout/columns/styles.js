@@ -10,7 +10,8 @@ export const Container = styled.div`
 
   ${media.tablet`
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     padding-bottom: 64px;
+    justify-content: flex-start;
   `}
 `;

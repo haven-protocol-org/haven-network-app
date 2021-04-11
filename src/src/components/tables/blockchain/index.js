@@ -1,47 +1,48 @@
 // Library Imports
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 // Relative Imports
 import { Container, Header, Cell, Key, Value } from "./styles";
 
 class Blockchain extends Component {
-  static defaultProps = {
-    data: {
-      results: {},
-    },
-  };
   render() {
-    const { result } = this.props.data;
-    const gb = result.database_size / 1073741274;
+    let result = {};
+    const { bc } = this.props.data;
+
+    if (bc !== undefined) {
+      result = bc.result;
+    }
+
+    let dataSize = result.database_size / 1073741274;
 
     return (
       <Container>
         <Header>Protocol</Header>
         <Cell>
           <Key>Height</Key>
-          <Value>{result.height.toLocaleString()}</Value>
+          <Value>{result.height}</Value>
         </Cell>
         <Cell>
           <Key>Block Size Limit</Key>
-          <Value>{result.block_size_limit.toLocaleString()}</Value>
+          <Value>{result.block_size_limit}</Value>
         </Cell>
         <Cell>
           <Key>Block Size Median</Key>
-          <Value>{result.block_size_median.toLocaleString()}</Value>
+          <Value>{result.block_size_median}</Value>
         </Cell>
-
         <Cell>
           <Key>Blockchain Size</Key>
-          <Value>{gb.toFixed(2).toLocaleString() + "GB"}</Value>
+          <Value>{dataSize === isNaN ? "" : dataSize.toFixed(2) + " GB"}</Value>
         </Cell>
         <Cell>
           <Key>Difficulty</Key>
-          <Value>{result.difficulty.toLocaleString()}</Value>
+          <Value>{result.difficulty}</Value>
         </Cell>
 
         <Cell>
           <Key>Transaction Count</Key>
-          <Value>{result.tx_count.toLocaleString()}</Value>
+          <Value>{result.tx_count}</Value>
         </Cell>
         <Cell>
           <Key>Online</Key>
@@ -52,4 +53,8 @@ class Blockchain extends Component {
   }
 }
 
-export default Blockchain;
+export const mapStateToProps = (state) => ({
+  data: state.getInfo,
+});
+
+export default connect(mapStateToProps)(Blockchain);

@@ -20,7 +20,7 @@ export const Container = styled.div`
 `;
 
 export const List = styled.div`
-  margin-top: 65px;
+  margin-top: calc(100vh / 3);
   position: fixed;
   width: 80px;
 
