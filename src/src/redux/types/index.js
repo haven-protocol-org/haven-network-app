@@ -1,1 +1,2 @@
-export const FETCH_DATA = "FETCH_USER";
+export const FETCH_INFO = "FETCH_INFO";
+export const FETCH_SUPPLY = "FETCH_SUPPLy";

@@ -16,16 +16,18 @@ import History from "./src/pages/history";
 import Protocol from "./src/pages/protocol";
 
 import { connect } from "react-redux";
-import { fetchData } from "./src/redux/actions";
+import { getInfo, getSupply } from "./src/redux/actions";
 
 class App extends Component {
   componentDidMount() {
-    console.log("Start Redux");
-    this.props.fetchData({ start: "start" });
+    this.props.getInfo();
+    this.props.getSupply();
   }
 
   render() {
-    console.log("End Redux", this.props.data);
+    console.log("INFO", this.props.info);
+    console.log("SUPPLY", this.props.supply);
+
     return (
       <Router>
         <Navigation />
@@ -48,7 +50,8 @@ class App extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  data: state.fetchData,
+  info: state.getInfo,
+  supply: state.getSupply,
 });
 
-export default connect(mapStateToProps, { fetchData })(App);
+export default connect(mapStateToProps, { getInfo, getSupply })(App);

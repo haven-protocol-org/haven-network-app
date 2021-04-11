@@ -1,8 +1,8 @@
-import { FETCH_DATA } from "../types/index.js";
+import { FETCH_SUPPLY } from "../types/index.js";
 
 export default function (state = {}, action) {
   switch (action.type) {
-    case FETCH_DATA:
+    case FETCH_SUPPLY:
       return action.payload;
     default:
       return state;
