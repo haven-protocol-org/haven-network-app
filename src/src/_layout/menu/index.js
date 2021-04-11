@@ -8,7 +8,7 @@ const Menu = () => {
   return (
     <Container>
       <List>
-        <Item to="/">Overview</Item>
+        <Item to="/">Insights</Item>
         <Item to="/assets">Assets</Item>
         <Item to="/protocol">Protocol</Item>
         <Item to="/history">History</Item>

@@ -18,7 +18,7 @@ const Assets = () => {
   return (
     <Container>
       <Header
-        title="Overview"
+        title="Insights"
         description="General statistics about Haven Protocol"
       />
       <WebStatistic />

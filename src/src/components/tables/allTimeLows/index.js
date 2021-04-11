@@ -1,51 +1,53 @@
 // Library Imports
 import React, { Component } from "react";
 import moment from "moment";
+import { connect } from "react-redux";
 
 // Relative Imports
 import { Container, Header, Cell, Key, Value } from "./styles";
 
 class AllTimeLows extends Component {
-  static defaultProps = {
-    data: {
-      atl: {},
-      atl_change_percentage: {},
-      atl_date: {},
-    },
-  };
   render() {
-    const { data } = this.props;
+    let to = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+
+    const { coingecko } = this.props.data;
+    let lowPrice;
+    let lowPercentage;
+    let lowDate;
+
+    if (coingecko !== undefined) {
+      lowPrice = to.format(coingecko.market_data.atl.usd);
+      lowDate = coingecko.market_data.atl_date.usd;
+      lowPercentage = coingecko.market_data.atl_change_percentage.usd.toFixed(
+        2
+      );
+    }
 
     return (
       <Container>
         <Header>All Time Lows</Header>
         <Cell>
           <Key>Price</Key>
-          <Value>
-            {data.atl.usd === undefined
-              ? null
-              : `${"$" + data.atl.usd.toFixed(2)}`}
-          </Value>
+          <Value>{lowPrice}</Value>
         </Cell>
         <Cell>
           <Key>Percentage</Key>
-          <Value>
-            {data.atl_change_percentage.usd === undefined
-              ? null
-              : data.atl_change_percentage.usd.toFixed(2) + "%"}
-          </Value>
+          <Value>{lowPercentage + "%"}</Value>
         </Cell>
         <Cell>
           <Key>Date</Key>
-          <Value>
-            {data.atl_date.usd === null
-              ? null
-              : moment(data.atl_date.usd).format("MMM Do Y")}
-          </Value>
+          <Value>{moment(lowDate).format("MMM Do Y")}</Value>
         </Cell>
       </Container>
     );
   }
 }
 
-export default AllTimeLows;
+export const mapStateToProps = (state) => ({
+  data: state.getInfo,
+});
+
+export default connect(mapStateToProps)(AllTimeLows);

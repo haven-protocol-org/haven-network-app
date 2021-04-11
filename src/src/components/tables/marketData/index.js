@@ -1,56 +1,62 @@
 // Library Imports
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 // Relative Imports
 import { Container, Header, Cell, Key, Value } from "./styles";
 
 class MarketData extends Component {
-  static defaultProps = {
-    data: {
-      current_price: {},
-      total_volume: {},
-      low_24h: {},
-      high_24h: {},
-      price_change_percentage_24h: null,
-    },
-  };
   render() {
-    const { data } = this.props;
-    var formatter = new Intl.NumberFormat("en-US", {
+    let to = new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
     });
+
+    const { coingecko } = this.props.data;
+    let totalVolume;
+    let high;
+    let low;
+    let change;
+    let currentPrice;
+
+    if (coingecko !== undefined) {
+      currentPrice = to.format(coingecko.market_data.current_price.usd);
+      totalVolume = to.format(coingecko.market_data.total_volume.usd);
+      high = to.format(coingecko.market_data.high_24h.usd);
+      low = to.format(coingecko.market_data.low_24h.usd);
+      change = coingecko.market_data.price_change_24h;
+    }
 
     return (
       <Container>
         <Header>Market Data</Header>
         <Cell>
           <Key>Spot Price</Key>
-          <Value>${data.current_price.usd}</Value>
+          <Value>{currentPrice}</Value>
         </Cell>
         <Cell>
           <Key>Total Volume</Key>
-          <Value>{formatter.format(data.total_volume.usd)}</Value>
+          <Value>{totalVolume}</Value>
         </Cell>
         <Cell>
           <Key>24H High</Key>
-          <Value>${data.high_24h.usd}</Value>
+          <Value>{high}</Value>
         </Cell>
         <Cell>
           <Key>24H Low</Key>
-          <Value>${data.low_24h.usd}</Value>
+          <Value>{low}</Value>
         </Cell>
         <Cell>
           <Key>24h Change</Key>
-          <Value>
-            {data.price_change_percentage_24h === null
-              ? null
-              : data.price_change_percentage_24h.toFixed(2) + "%"}
-          </Value>
+          <Value>{change + "%"}</Value>
         </Cell>
       </Container>
     );
   }
 }
 
-export default MarketData;
+export const mapStateToProps = (state) => ({
+  data: state.getInfo,
+});
+
+export default connect(mapStateToProps)(MarketData);

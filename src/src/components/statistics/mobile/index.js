@@ -6,30 +6,33 @@ import { connect } from "react-redux";
 import { Data, Grid, Value, Label, Statistic } from "./styles";
 
 class MobileStatistics extends Component {
-  static defaultProps = {
-    data: {
-      db_lastblock: {
-        pricing_record: {},
-      },
-    },
-  };
-
   render() {
     const { prices } = this.props;
+
+    let to = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+
+    const decimal = new Intl.NumberFormat("en-US", {
+      style: "decimal",
+      currency: "USD",
+    });
+
     let networkValue = "...";
     let movingAverage = "...";
     let xhvCirculatingSupply = "...";
     let xusdCirculatingSupply = "...";
 
     if (prices !== undefined) {
-      movingAverage = `${"$"}${prices.pricing_record.xUSD.toFixed(4)}`;
-      xhvCirculatingSupply = prices.supply.XHV.toFixed(4);
-      xusdCirculatingSupply = prices.supply.XHV.toFixed(4);
+      movingAverage = to.format(prices.pricing_record.xUSD.toFixed(2));
+      xhvCirculatingSupply = decimal.format(prices.supply.XHV.toFixed(2));
+      xusdCirculatingSupply = decimal.format(prices.supply.XHV.toFixed(2));
 
       const marketCap =
         prices.pricing_record.xUSD * prices.supply.XHV + prices.supply.xUSD;
 
-      networkValue = `${"$"}${marketCap.toFixed(4)}`;
+      networkValue = to.format(marketCap.toFixed(2));
     }
 
     return (

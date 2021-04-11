@@ -7,6 +7,16 @@ import { Data, Grid, Value, Label, Statistic } from "./styles";
 
 class WebStatistic extends Component {
   render() {
+    let to = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+
+    const decimal = new Intl.NumberFormat("en-US", {
+      style: "decimal",
+      currency: "USD",
+    });
+
     const { prices } = this.props;
     let networkValue = "...";
     let movingAverage = "...";
@@ -14,14 +24,14 @@ class WebStatistic extends Component {
     let xusdCirculatingSupply = "...";
 
     if (prices !== undefined) {
-      movingAverage = `${"$"}${prices.pricing_record.xUSD.toFixed(4)}`;
-      xhvCirculatingSupply = prices.supply.XHV.toFixed(4);
-      xusdCirculatingSupply = prices.supply.XHV.toFixed(4);
+      movingAverage = `${to.format(prices.pricing_record.xUSD.toFixed(2))}`;
+      xhvCirculatingSupply = decimal.format(prices.supply.XHV.toFixed(2));
+      xusdCirculatingSupply = decimal.format(prices.supply.XHV.toFixed(2));
 
       const marketCap =
         prices.pricing_record.xUSD * prices.supply.XHV + prices.supply.xUSD;
 
-      networkValue = `${"$"}${marketCap.toFixed(4)}`;
+      networkValue = `${"$"}${marketCap.toFixed(2)}`;
     }
     return (
       <Grid>
