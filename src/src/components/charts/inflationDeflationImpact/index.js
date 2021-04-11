@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
 import moment from "moment";
+import { connect } from "react-redux";
 
 // Relative Imports
 import { Container, Header } from "./styles";
@@ -13,15 +14,17 @@ class InflationDeflationImpact extends Component {
     },
   };
   render() {
-    const { organic_coins } = this.props.data;
+    const { organic_coins } = this.props.supply;
     let offshore = [];
     let supply = [];
     let date = [];
 
-    for (var i = 0; i < organic_coins.length; i++) {
-      offshore.push(organic_coins[i][`offshore`]);
-      supply.push(organic_coins[i][`supply`]);
-      date.push(moment(organic_coins[i].period).format("MMM Do"));
+    if (organic_coins !== undefined) {
+      for (var i = 0; i < organic_coins.length; i++) {
+        offshore.push(organic_coins[i][`offshore`]);
+        supply.push(organic_coins[i][`supply`]);
+        date.push(moment(organic_coins[i].period).format("MMM Do"));
+      }
     }
 
     const info = {
@@ -100,4 +103,8 @@ class InflationDeflationImpact extends Component {
   }
 }
 
-export default InflationDeflationImpact;
+export const mapStateToProps = (state) => ({
+  supply: state.getSupply,
+});
+
+export default connect(mapStateToProps)(InflationDeflationImpact);

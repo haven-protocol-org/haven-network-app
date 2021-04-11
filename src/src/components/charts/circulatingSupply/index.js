@@ -15,6 +15,7 @@ class CirculatingSupply extends Component {
       supply_coins: {},
     },
   };
+
   render() {
     const data = this.props.supply.supply_coins;
     let xhv = [];
@@ -107,7 +108,6 @@ class CirculatingSupply extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  info: state.getInfo,
   supply: state.getSupply,
 });
 
