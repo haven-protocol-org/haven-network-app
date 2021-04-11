@@ -16,7 +16,7 @@ export const getInfo = () => {
     axios.get(infoAPI).then((response) => {
       dispatch({
         type: FETCH_INFO,
-        payload: response,
+        payload: response.data,
       });
     });
   };
@@ -27,7 +27,7 @@ export const getSupply = () => {
     axios.get(supplyAPI).then((response) => {
       dispatch({
         type: FETCH_SUPPLY,
-        payload: response,
+        payload: response.data,
       });
     });
   };

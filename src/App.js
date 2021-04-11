@@ -25,9 +25,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("INFO", this.props.info);
-    console.log("SUPPLY", this.props.supply);
-
     return (
       <Router>
         <Navigation />

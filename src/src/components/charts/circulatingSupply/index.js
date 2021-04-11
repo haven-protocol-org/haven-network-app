@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
 import moment from "moment";
+import { connect } from "react-redux";
 
 // https://maketintsandshades.com/#E63E98,40D674,017FDD,ECAF01,F64538,9E37A9
 
@@ -9,16 +10,23 @@ import moment from "moment";
 import { Container, Header } from "./styles";
 
 class CirculatingSupply extends Component {
+  static defaultProps = {
+    data: {
+      supply_coins: {},
+    },
+  };
   render() {
-    const { data } = this.props;
+    const data = this.props.supply.supply_coins;
     let xhv = [];
     let xusd = [];
     let date = [];
 
-    for (var i = 0; i < data.length; i++) {
-      xhv.push(data[i].XHV);
-      xusd.push(data[i].xUSD);
-      date.push(moment(data[i].period).format("MMM Do"));
+    if (data !== undefined) {
+      for (var i = 0; i < data.length; i++) {
+        xhv.push(data[i].XHV);
+        xusd.push(data[i].xUSD);
+        date.push(moment(data[i].period).format("MMM Do"));
+      }
     }
 
     const info = {
@@ -98,6 +106,9 @@ class CirculatingSupply extends Component {
   }
 }
 
-CirculatingSupply.propTypes = {};
+export const mapStateToProps = (state) => ({
+  info: state.getInfo,
+  supply: state.getSupply,
+});
 
-export default CirculatingSupply;
+export default connect(mapStateToProps)(CirculatingSupply);

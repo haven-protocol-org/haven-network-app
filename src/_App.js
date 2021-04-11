@@ -71,6 +71,8 @@ class App extends Component {
       });
     });
 
+    // <CirculatingSupply data={supply} />
+
     axios.get(getSupply).then((response) => {
       this.setState({
         supply: response.data.supply_coins,
