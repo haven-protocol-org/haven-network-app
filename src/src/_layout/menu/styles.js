@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import media from "../../constants/media.js";
 import { dark } from "../../constants/themes.js";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+const activeClassName = "selected";
 
 export const Container = styled.div`
   height: 100%;
@@ -31,7 +33,9 @@ export const List = styled.div`
   `}
 `;
 
-export const Item = styled(Link)`
+export const Item = styled(NavLink).attrs({
+  activeClassName,
+})`
   height: 80px;
   width: 100%;
   display: flex;
@@ -39,16 +43,37 @@ export const Item = styled(Link)`
   justify-content: center;
   border-bottom: 1px solid ${dark.body.border};
   font-size: 12px;
-  color: white;
+  font-family: "Inter";
+  color: ${dark.type.secondary};
   text-decoration: none;
 
   ${media.tablet`
     width: 25%;
     height: 64px;
+
+    ${media.tablet`
+      color: ${dark.type.primary};
+    `}
+
   `};
 
   &:hover {
-    background: red;
     cursor: pointer;
+  }
+
+  &.${activeClassName} {
+    color: ${dark.type.primary};
+    border-left: 2px solid ${dark.button.primary};
+
+    ${media.tablet`
+      border-top: 2px solid ${dark.button.primary};
+      border-left: none;
+    `}
+
+    &:hover {
+      cursor: pointer;
+      transition: 250ms;
+      color: ${dark.type.primary};
+    }
   }
 `;
