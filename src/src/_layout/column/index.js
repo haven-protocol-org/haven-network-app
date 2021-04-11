@@ -4,8 +4,8 @@ import React from "react";
 // Relative Imports
 import { Container } from "./styles";
 
-const Layout = ({ children }) => {
+const Column = ({ children }) => {
   return <Container>{children}</Container>;
 };
 
-export default Layout;
+export default Column;

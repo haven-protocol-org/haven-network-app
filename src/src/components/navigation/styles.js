@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { dark } from "../../constants/themes.js";
 
 export const Container = styled.header`
-  height: 64px;
   z-index: 1000;
   position: fixed;
+  height: 64px;
   width: 100vw;
   background: #26282c;
   display: flex;

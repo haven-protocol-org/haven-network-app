@@ -6,7 +6,7 @@ import { Container } from "./styles";
 import Blocks from "../../_layout/_blocks/index.js";
 import Header from "../../components/header/index.js";
 
-const Assets = () => {
+const Blank = () => {
   return (
     <Container>
       <Header title="Overview" description="..." />
@@ -18,4 +18,4 @@ const Assets = () => {
   );
 };
 
-export default Assets;
+export default Blank;

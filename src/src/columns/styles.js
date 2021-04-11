@@ -5,7 +5,7 @@ import { dark } from "../constants/themes.js";
 export const Container = styled.div`
   display: grid;
   background: ${dark.body.background};
-  grid-template-columns: 140px 1fr;
+  grid-template-columns: 80px 1fr;
   position: fixed;
   width: 100%;
 

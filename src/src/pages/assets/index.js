@@ -1,18 +1,21 @@
 // Library Imports
-import React, { Component } from "react";
+import React from "react";
 
 // Relative Imports
 import { Container } from "./styles";
+import Blocks from "../../_layout/_blocks/index.js";
 import Header from "../../components/header/index.js";
 
-class Assets extends Component {
-  render() {
-    return (
-      <Container>
-        <Header title="Assets" description="Assets" />
-      </Container>
-    );
-  }
-}
+const Assets = () => {
+  return (
+    <Container>
+      <Header title="Assets" description="..." />
+      <Blocks />
+      <Blocks />
+      <Blocks />
+      <Blocks />
+    </Container>
+  );
+};
 
 export default Assets;

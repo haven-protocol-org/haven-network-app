@@ -9,7 +9,7 @@ import Header from "../../components/header/index.js";
 const Assets = () => {
   return (
     <Container>
-      <Header title="Overview" description="..." />
+      <Header title="History" description="..." />
       <Blocks />
       <Blocks />
       <Blocks />
