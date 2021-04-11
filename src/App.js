@@ -15,8 +15,17 @@ import Assets from "./src/pages/assets";
 import History from "./src/pages/history";
 import Protocol from "./src/pages/protocol";
 
+import { connect } from "react-redux";
+import { fetchData } from "./src/redux/actions";
+
 class App extends Component {
+  componentDidMount() {
+    console.log("Start Redux");
+    this.props.fetchData({ start: "start" });
+  }
+
   render() {
+    console.log("End Redux", this.props.data);
     return (
       <Router>
         <Navigation />
@@ -38,4 +47,8 @@ class App extends Component {
   }
 }
 
-export default App;
+export const mapStateToProps = (state) => ({
+  data: state.fetchData,
+});
+
+export default connect(mapStateToProps, { fetchData })(App);
