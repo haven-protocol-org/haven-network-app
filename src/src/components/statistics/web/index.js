@@ -31,7 +31,7 @@ class WebStatistic extends Component {
       const marketCap =
         prices.pricing_record.xUSD * prices.supply.XHV + prices.supply.xUSD;
 
-      networkValue = `${"$"}${marketCap.toFixed(2)}`;
+      networkValue = to.format(marketCap.toFixed(2));
     }
     return (
       <Grid>

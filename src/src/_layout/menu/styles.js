@@ -46,20 +46,21 @@ export const Item = styled(NavLink).attrs({
   font-family: "Inter";
   color: ${dark.type.secondary};
   text-decoration: none;
+  border-left: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   ${media.tablet`
     width: 25%;
     height: 64px;
 
     ${media.tablet`
-      color: ${dark.type.primary};
+      color: ${dark.type.secondary};
     `}
 
   `};
-
-  &:hover {
-    cursor: pointer;
-  }
 
   &.${activeClassName} {
     color: ${dark.type.primary};

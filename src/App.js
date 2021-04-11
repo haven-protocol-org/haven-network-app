@@ -33,7 +33,7 @@ class App extends Component {
             <Menu />
             <Column>
               <Switch>
-                <Route path="/" exact component={Overview} />
+                <Route path="/overview" component={Overview} />
                 <Route path="/assets" exact component={Assets} />
                 <Route path="/protocol" exact component={Protocol} />
                 <Route path="/history" exact component={History} />
