@@ -9,7 +9,7 @@ import Blockchain from "../../components/tables/blockchain";
 const Assets = () => {
   return (
     <Container>
-      <Header title="Protocol" description="Protocol statistics" />
+      <Header title="Protocol" description="Basic protocol statistics" />
       <Blockchain />
     </Container>
   );

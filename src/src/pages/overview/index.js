@@ -17,10 +17,7 @@ import SpotAndMovingAveragePrice from "../../components/charts/spotMADeviationPr
 const Assets = () => {
   return (
     <Container>
-      <Header
-        title="Insights"
-        description="General statistics about Haven Protocol"
-      />
+      <Header title="Insights" description="Usage and activity statistics" />
       <WebStatistic />
       <MobileStatistics />
       <MarketCapAssets />

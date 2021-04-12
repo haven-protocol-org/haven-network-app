@@ -55,7 +55,7 @@ class Assets extends Component {
 
     return (
       <Container>
-        <Header title="Assets" description="..." />
+        <Header title="Assets" description="Overview of available assets" />
         {this.displayAssets()}
       </Container>
     );

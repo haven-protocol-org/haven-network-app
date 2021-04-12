@@ -66,6 +66,7 @@ export const Item = styled(NavLink).attrs({
   ${media.tablet`
     width: 25%;
     height: 64px;
+    border-top: 1px solid ${dark.body.border};
 
     ${media.tablet`
       color: ${dark.type.secondary};
@@ -80,7 +81,7 @@ export const Item = styled(NavLink).attrs({
     ${media.tablet`
       border-top: 2px solid ${dark.button.primary};
       border-left: none;
-      margin-top: -2px;
+
     `}
 
     &:hover {

@@ -12,7 +12,7 @@ import MarketData from "../../components/tables/marketData";
 const History = () => {
   return (
     <Container>
-      <Header title="History" description="..." />
+      <Header title="History" description="Historical pricing information" />
       <MarketData />
       <AllTimeHighs />
       <AllTimeLows />
