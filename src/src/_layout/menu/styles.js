@@ -33,12 +33,19 @@ export const List = styled.div`
   `}
 `;
 
+export const Icon = styled.img`
+  height: 28px;
+  width: 28px;
+  margin-bottom: 6px;
+`;
+
 export const Item = styled(NavLink).attrs({
   activeClassName,
 })`
   height: 80px;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid ${dark.body.border};
@@ -47,6 +54,10 @@ export const Item = styled(NavLink).attrs({
   color: ${dark.type.secondary};
   text-decoration: none;
   border-left: none;
+
+  &:nth-child(1) {
+    border-top: 1px solid ${dark.body.border};
+  }
 
   &:hover {
     cursor: pointer;
@@ -64,11 +75,12 @@ export const Item = styled(NavLink).attrs({
 
   &.${activeClassName} {
     color: ${dark.type.primary};
-    border-left: 2px solid ${dark.button.primary};
+    border-left: 4px solid ${dark.button.primary};
 
     ${media.tablet`
       border-top: 2px solid ${dark.button.primary};
       border-left: none;
+      margin-top: -2px;
     `}
 
     &:hover {

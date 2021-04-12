@@ -15,11 +15,16 @@ class MarketCapAssets extends Component {
   };
   render() {
     const { supply_value } = this.props.supply;
+    console.log(supply_value);
 
     let xhv = [];
     let xUSD = [];
     let total = [];
     let date = [];
+
+    // xAssets
+    let gold = [];
+    let silver = [];
 
     if (supply_value !== undefined) {
       for (var i = 0; i < supply_value.length; i++) {
@@ -31,28 +36,9 @@ class MarketCapAssets extends Component {
     }
 
     const info = {
+      yAxisID: "bar-stacked",
       labels: date,
       datasets: [
-        {
-          label: "xUSD & XHV",
-          fill: true,
-          lineTension: 0.1,
-          borderColor: "rgba(114, 137, 218, 1)",
-          borderCapStyle: "butt",
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
-          pointBorderColor: "rgba(114, 137, 218, 1)",
-          pointBackgroundColor: "rgba(255, 255, 255, 0.5)",
-          pointBorderWidth: 1,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(114, 137, 218, 0.8)",
-          pointHoverBorderColor: "rgba(114, 137, 218, 1)",
-          pointHoverBorderWidth: 2,
-          pointRadius: 1,
-          pointHitRadius: 10,
-          data: total,
-        },
         {
           label: "xUSD",
           fill: true,
@@ -102,7 +88,7 @@ class MarketCapAssets extends Component {
         <Line
           options={{
             responsive: true,
-            stacked: true,
+
             maintainAspectRatio: false,
             scales: {
               xAxes: [
@@ -117,6 +103,8 @@ class MarketCapAssets extends Component {
                   gridLines: {
                     display: false,
                   },
+                  id: "bar-stacked",
+                  stacked: true,
                 },
               ],
             },

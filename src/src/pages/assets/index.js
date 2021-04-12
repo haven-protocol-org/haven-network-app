@@ -20,7 +20,7 @@ class Assets extends Component {
     const { db_lastblock } = this.props.data;
 
     if (db_lastblock !== undefined) {
-      const { pricing_record } = db_lastblock;
+      const { pricing_spot_record, pricing_record } = db_lastblock;
 
       return Object.entries(pricing_record).map((prices) => {
         if (prices[1] === 0) {
@@ -37,6 +37,22 @@ class Assets extends Component {
   };
 
   render() {
+    console.log(this.props.data.db_lastblock24);
+    let supply = {};
+    let xhv, xag, xau, xcny, xeuro, xusd;
+
+    const { db_lastblock24 } = this.props.data;
+    if (db_lastblock24 !== undefined) {
+      supply = db_lastblock24.supply;
+      xag = supply.xAG.toFixed(2);
+      xhv = supply.XHV.toFixed(2);
+      xau = supply.xAU.toFixed(2);
+      xcny = supply.xCNY.toFixed(2);
+      xeuro = supply.xEUR.toFixed(2);
+      xusd = supply.xUSD.toFixed(2);
+    }
+    console.log(xag);
+
     return (
       <Container>
         <Header title="Assets" description="..." />

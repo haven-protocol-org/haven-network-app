@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { dark } from "../../../constants/themes.js";
 
 export const Container = styled.div`
-  max-height: 600px;
+  max-height: 640px;
   min-height: 450px;
   width: auto;
   background: ${dark.body.foreground};
