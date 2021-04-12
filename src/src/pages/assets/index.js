@@ -32,8 +32,14 @@ class Assets extends Component {
         } else if (prices[0][0] === "u") {
           return null;
         } else {
+          const asset = prices[0];
           return (
-            <AssetCell key={prices[0]} name={prices[0]} value={prices[1]} />
+            <AssetCell
+              to={"/assets/gold"}
+              key={prices[0]}
+              name={prices[0]}
+              value={prices[1]}
+            />
           );
         }
       });

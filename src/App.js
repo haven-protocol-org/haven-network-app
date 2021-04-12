@@ -14,6 +14,7 @@ import Overview from "./src/pages/overview";
 import Assets from "./src/pages/assets";
 import History from "./src/pages/history";
 import Protocol from "./src/pages/protocol";
+import Details from "./src/pages/details";
 
 import { connect } from "react-redux";
 import { getInfo, getSupply } from "./src/redux/actions";
@@ -37,6 +38,7 @@ class App extends Component {
                 <Route path="/assets" exact component={Assets} />
                 <Route path="/protocol" exact component={Protocol} />
                 <Route path="/history" exact component={History} />
+                <Route path="/assets/:id" exact component={Details} />
               </Switch>
             </Column>
           </Columns>

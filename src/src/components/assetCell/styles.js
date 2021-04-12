@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { dark } from "../../constants/themes.js";
+import { Link } from "react-router-dom";
 
-export const Container = styled.div`
+export const Container = styled(Link)`
   background: ${dark.body.foreground};
   padding: 20px;
   border-radius: 4px;
+  text-decoration: none;
 `;
 
 export const Row = styled.div`

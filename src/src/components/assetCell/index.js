@@ -6,7 +6,7 @@ import { Container, Row, Title, Description } from "./styles";
 
 const AssetCell = ({ name, value }) => {
   return (
-    <Container>
+    <Container to={`/assets/${name}`}>
       <Row>
         <Title>{name}</Title>
         <Description>{value}</Description>

@@ -8,7 +8,7 @@ const Header = ({ title, description, back = false }) => {
   return (
     <Container>
       <Row>
-        {back && <Back to="/wallet/assets">« Back</Back>}
+        {back && <Back to="/assets">« Back</Back>}
         <Title>{title}</Title>
       </Row>
       <Description>{description}</Description>
