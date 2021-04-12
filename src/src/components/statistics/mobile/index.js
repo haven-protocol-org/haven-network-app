@@ -27,7 +27,7 @@ class MobileStatistics extends Component {
     if (prices !== undefined) {
       movingAverage = to.format(prices.pricing_record.xUSD.toFixed(2));
       xhvCirculatingSupply = decimal.format(prices.supply.XHV.toFixed(2));
-      xusdCirculatingSupply = decimal.format(prices.supply.XHV.toFixed(2));
+      xusdCirculatingSupply = decimal.format(prices.supply.xUSD.toFixed(2));
 
       const marketCap =
         prices.pricing_record.xUSD * prices.supply.XHV + prices.supply.xUSD;
