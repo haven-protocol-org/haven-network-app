@@ -7,6 +7,7 @@ export const Container = styled(Link)`
   padding: 20px;
   border-radius: 4px;
   text-decoration: none;
+  border: 1px solid ${dark.body.border};
 `;
 
 export const Row = styled.div`
