@@ -16,6 +16,10 @@ class Assets extends Component {
     },
   };
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   displayAssets = () => {
     const { db_lastblock } = this.props.data;
 
@@ -37,7 +41,7 @@ class Assets extends Component {
   };
 
   render() {
-    console.log(this.props.data.db_lastblock24);
+    // console.log(this.props.data.db_lastblock24);
     let supply = {};
     let xhv, xag, xau, xcny, xeuro, xusd;
 
@@ -51,7 +55,6 @@ class Assets extends Component {
       xeuro = supply.xEUR.toFixed(2);
       xusd = supply.xUSD.toFixed(2);
     }
-    console.log(xag);
 
     return (
       <Container>

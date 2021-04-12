@@ -16,20 +16,25 @@ class Blockchain extends Component {
 
     let dataSize = result.database_size / 1073741274;
 
+    const to = new Intl.NumberFormat("en-US", {
+      style: "decimal",
+      currency: "USD",
+    });
+
     return (
       <Container>
         <Header>Protocol</Header>
         <Cell>
           <Key>Height</Key>
-          <Value>{result.height}</Value>
+          <Value>{to.format(result.height)}</Value>
         </Cell>
         <Cell>
           <Key>Block Size Limit</Key>
-          <Value>{result.block_size_limit}</Value>
+          <Value>{to.format(result.block_size_limit)}</Value>
         </Cell>
         <Cell>
           <Key>Block Size Median</Key>
-          <Value>{result.block_size_median}</Value>
+          <Value>{to.format(result.block_size_median)}</Value>
         </Cell>
         <Cell>
           <Key>Blockchain Size</Key>
@@ -37,12 +42,12 @@ class Blockchain extends Component {
         </Cell>
         <Cell>
           <Key>Difficulty</Key>
-          <Value>{result.difficulty}</Value>
+          <Value>{to.format(result.difficulty)}</Value>
         </Cell>
 
         <Cell>
           <Key>Transaction Count</Key>
-          <Value>{result.tx_count}</Value>
+          <Value>{to.format(result.tx_count)}</Value>
         </Cell>
         <Cell>
           <Key>Online</Key>

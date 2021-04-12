@@ -15,7 +15,7 @@ class MarketCapAssets extends Component {
   };
   render() {
     const { supply_value } = this.props.supply;
-    console.log(supply_value);
+    // console.log(supply_value);
 
     let xhv = [];
     let xUSD = [];

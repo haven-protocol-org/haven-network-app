@@ -2,13 +2,13 @@ import { FETCH_INFO, FETCH_SUPPLY } from "../types/index.js";
 import axios from "axios";
 
 const haven = "https://network-api.havenprotocol.org/";
-const testnet = "api-testnet/";
+// const testnet = "api-testnet/";
 const mainnet = "api/";
 const info = "info";
 const supply = "circulationSupply";
 
-const infoAPI = `${haven}${testnet}${info}`;
-const supplyAPI = `${haven}${testnet}${supply}`;
+const infoAPI = `${haven}${mainnet}${info}`;
+const supplyAPI = `${haven}${mainnet}${supply}`;
 
 // Other method from Frontend Masters
 export const getInfo = () => {
@@ -32,8 +32,3 @@ export const getSupply = () => {
     });
   };
 };
-
-// export const fetchData = (data) => ({
-//   type: FETCH_DATA,
-//   payload: data,
-// });

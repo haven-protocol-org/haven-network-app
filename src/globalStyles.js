@@ -6,7 +6,6 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-size: 16px;
     font-family: 'Inter', sans-serif;
-    font-family: 'Playfair Display', serif;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
