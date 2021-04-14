@@ -88,7 +88,6 @@ class MarketCapAssets extends Component {
         <Line
           options={{
             responsive: true,
-
             maintainAspectRatio: false,
             scales: {
               xAxes: [

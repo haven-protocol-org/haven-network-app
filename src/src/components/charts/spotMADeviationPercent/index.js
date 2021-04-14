@@ -77,8 +77,9 @@ class SpotAndMovingAveragePercent extends Component {
         <Header>Spot & MA Deviation Percent</Header>
         <Line
           options={{
+            height: 600,
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             scales: {
               xAxes: [
                 {

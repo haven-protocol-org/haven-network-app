@@ -4,6 +4,8 @@ import { dark } from "../../../constants/themes.js";
 export const Container = styled.div`
   height: auto;
   width: auto;
+  max-height: 640px;
+  min-height: 450px;
   background: ${dark.body.foreground};
   border-radius: 4px;
   border: 1px solid ${dark.body.border};

@@ -33,7 +33,9 @@ export const List = styled.div`
   `}
 `;
 
-export const Icon = styled.img`
+export const Icon = styled.img.attrs({
+  activeClassName,
+})`
   height: 28px;
   width: 28px;
   margin-bottom: 6px;

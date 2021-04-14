@@ -82,7 +82,7 @@ class CirculatingSupply extends Component {
         <Line
           options={{
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             scales: {
               xAxes: [
                 {
