@@ -8,7 +8,7 @@ const info = "info";
 const supply = "circulationSupply";
 
 const infoAPI = `${haven}${mainnet}${info}`;
-const supplyAPI = `${haven}${mainnet}${supply}`;
+const supplyAPI = `${haven}${mainnet}${supply}?nbDatapoints=300`;
 
 // Other method from Frontend Masters
 export const getInfo = () => {

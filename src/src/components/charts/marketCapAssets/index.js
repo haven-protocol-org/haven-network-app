@@ -35,49 +35,41 @@ class MarketCapAssets extends Component {
       }
     }
 
+    const purple = "rgba(64, 214, 116)";
+    const green = "rgba(114, 137, 218)";
+
     const info = {
       yAxisID: "bar-stacked",
       labels: date,
       datasets: [
         {
           label: "xUSD",
+          data: xUSD,
           fill: true,
           lineTension: 0.1,
-          borderColor: "rgba(1, 127, 221, 0.8)",
-          borderCapStyle: "butt",
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
-          pointBorderColor: "rgba(1, 127, 221, 1)",
-          pointBackgroundColor: "rgba(255, 255, 255, 0.5)",
           pointBorderWidth: 1,
           pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(1, 127, 221, 0.8)",
-          pointHoverBorderColor: "rgba(1, 127, 221, 1)",
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: xUSD,
+          borderColor: `${purple}`,
+          pointHoverBackgroundColor: `${purple}`,
+          pointHoverBorderColor: `${purple}`,
         },
+
         {
           label: "XHV",
+          data: xhv,
           fill: true,
           lineTension: 0.1,
-          borderColor: "rgba(64, 214, 116, 0.8)",
-          borderCapStyle: "butt",
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
-          pointBorderColor: "rgba(64, 214, 116, 0.8)",
-          pointBackgroundColor: "rgba(255, 255, 255, 0.5)",
-          pointBorderWidth: 1,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(64, 214, 116, 0.8)",
-          pointHoverBorderColor: "rgba(64, 214, 116, 1)",
-          pointHoverBorderWidth: 2,
           pointRadius: 1,
+          pointHoverRadius: 5,
+          pointHoverBorderWidth: 2,
+          pointBorderWidth: 1,
           pointHitRadius: 10,
-          data: xhv,
+          borderColor: `${green}`,
+          pointHoverBorderColor: `${green}`,
+          pointHoverBackgroundColor: `${green}`,
         },
       ],
     };

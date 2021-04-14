@@ -28,48 +28,37 @@ class SpotAndMovingAveragePrice extends Component {
       }
     }
 
+    const purple = "rgba(64, 214, 116)";
+    const green = "rgba(114, 137, 218)";
+
     const info = {
       labels: date,
       datasets: [
         {
           label: "Moving Average",
+          data: average,
           fill: true,
           lineTension: 0.1,
-          borderColor: "rgba(1, 127, 221, 0.8)",
-          borderCapStyle: "butt",
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
-          pointBorderColor: "rgba(1, 127, 221, 1)",
-          pointBackgroundColor: "rgba(255, 255, 255, 0.5)",
-          pointBorderWidth: 1,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(1, 127, 221, 0.8)",
-          pointHoverBorderColor: "rgba(1, 127, 221, 1)",
-          pointHoverBorderWidth: 2,
           pointRadius: 1,
+          pointHoverRadius: 5,
+          pointHoverBorderWidth: 2,
           pointHitRadius: 10,
-          data: average,
+          borderColor: `${purple}`,
+          pointHoverBorderColor: `${purple}`,
+          pointHoverBackgroundColor: `${purple}`,
         },
         {
           label: "Spot Price",
+          data: spot,
           fill: true,
           lineTension: 0.1,
-          borderColor: "rgba(64, 214, 116, 0.8)",
-          borderCapStyle: "butt",
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
-          pointBorderColor: "rgba(64, 214, 116, 1)",
-          pointBackgroundColor: "#fff",
-          pointBorderWidth: 1,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(75,192,192,1)",
-          pointHoverBorderColor: "rgba(220,220,220,1)",
-          pointHoverBorderWidth: 2,
           pointRadius: 1,
+          pointHoverRadius: 5,
+          pointHoverBorderWidth: 2,
           pointHitRadius: 10,
-          data: spot,
+          borderColor: `${green}`,
+          pointHoverBorderColor: `${green}`,
+          pointHoverBackgroundColor: `${green}`,
         },
       ],
     };
