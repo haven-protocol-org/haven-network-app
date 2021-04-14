@@ -22,6 +22,10 @@ export const Cell = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid ${dark.body.border};
+
+  &:last-child {
+    border-bottom: none;
+  }
 `;
 
 export const Key = styled.div`
