@@ -3,8 +3,7 @@ import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
 import moment from "moment";
 import { connect } from "react-redux";
-
-// https://maketintsandshades.com/#E63E98,40D674,017FDD,ECAF01,F64538,9E37A9
+import { Loading } from "../../loading/index.js";
 
 // Relative Imports
 import { Container, Header } from "./styles";
@@ -68,29 +67,33 @@ class CirculatingSupply extends Component {
     return (
       <Container>
         <Header>Circulating Supply</Header>
-        <Line
-          options={{
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              xAxes: [
-                {
-                  gridLines: {
-                    display: false,
+        {data === undefined ? (
+          <Loading message="Checking the supply" />
+        ) : (
+          <Line
+            options={{
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                xAxes: [
+                  {
+                    gridLines: {
+                      display: false,
+                    },
                   },
-                },
-              ],
-              yAxes: [
-                {
-                  gridLines: {
-                    display: false,
+                ],
+                yAxes: [
+                  {
+                    gridLines: {
+                      display: false,
+                    },
                   },
-                },
-              ],
-            },
-          }}
-          data={info}
-        />
+                ],
+              },
+            }}
+            data={info}
+          />
+        )}
       </Container>
     );
   }

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
 import moment from "moment";
 import { connect } from "react-redux";
+import { Loading } from "../../loading/index.js";
 
 // Relative Imports
 import { Container, Header } from "./styles";
@@ -64,29 +65,33 @@ class InflationDeflationImpact extends Component {
     return (
       <Container>
         <Header>Offshore Inflation Impact</Header>
-        <Line
-          options={{
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              xAxes: [
-                {
-                  gridLines: {
-                    display: false,
+        {organic_coins === undefined ? (
+          <Loading message="Calculating inflation impact" />
+        ) : (
+          <Line
+            options={{
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                xAxes: [
+                  {
+                    gridLines: {
+                      display: false,
+                    },
                   },
-                },
-              ],
-              yAxes: [
-                {
-                  gridLines: {
-                    display: false,
+                ],
+                yAxes: [
+                  {
+                    gridLines: {
+                      display: false,
+                    },
                   },
-                },
-              ],
-            },
-          }}
-          data={info}
-        />
+                ],
+              },
+            }}
+            data={info}
+          />
+        )}
       </Container>
     );
   }

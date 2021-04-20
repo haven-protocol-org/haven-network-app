@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
 import moment from "moment";
 import { connect } from "react-redux";
+import { Loading } from "../../loading/index.js";
 
 // Relative Imports
 import { Container, Header } from "./styles";
@@ -23,8 +24,8 @@ class MarketCapAssets extends Component {
     let date = [];
 
     // xAssets
-    let gold = [];
-    let silver = [];
+    // let gold = [];
+    // let silver = [];
 
     if (supply_value !== undefined) {
       for (var i = 0; i < supply_value.length; i++) {
@@ -77,31 +78,35 @@ class MarketCapAssets extends Component {
     return (
       <Container>
         <Header>Total Network Value</Header>
-        <Line
-          options={{
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              xAxes: [
-                {
-                  gridLines: {
-                    display: false,
+        {supply_value === undefined ? (
+          <Loading message="Fetching network data" />
+        ) : (
+          <Line
+            options={{
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                xAxes: [
+                  {
+                    gridLines: {
+                      display: false,
+                    },
                   },
-                },
-              ],
-              yAxes: [
-                {
-                  gridLines: {
-                    display: false,
+                ],
+                yAxes: [
+                  {
+                    gridLines: {
+                      display: false,
+                    },
+                    id: "bar-stacked",
+                    stacked: true,
                   },
-                  id: "bar-stacked",
-                  stacked: true,
-                },
-              ],
-            },
-          }}
-          data={info}
-        />
+                ],
+              },
+            }}
+            data={info}
+          />
+        )}
       </Container>
     );
   }

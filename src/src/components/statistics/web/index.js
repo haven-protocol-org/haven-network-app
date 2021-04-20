@@ -1,6 +1,7 @@
 // Library Imports
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Dots from "../../dots/index.js";
 
 // Relative Imports
 import { Data, Grid, Value, Label, Statistic } from "./styles";

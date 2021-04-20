@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
 import moment from "moment";
 import { connect } from "react-redux";
+import { Loading } from "../../loading/index.js";
 
 // Relative Imports
 import { Container, Header } from "./styles";
@@ -65,29 +66,33 @@ class SpotAndMovingAveragePrice extends Component {
     return (
       <Container>
         <Header>Spot & MA Deviation Price</Header>
-        <Line
-          options={{
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              xAxes: [
-                {
-                  gridLines: {
-                    display: false,
+        {deviation === undefined ? (
+          <Loading message="Figuring out price deviation" />
+        ) : (
+          <Line
+            options={{
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                xAxes: [
+                  {
+                    gridLines: {
+                      display: false,
+                    },
                   },
-                },
-              ],
-              yAxes: [
-                {
-                  gridLines: {
-                    display: false,
+                ],
+                yAxes: [
+                  {
+                    gridLines: {
+                      display: false,
+                    },
                   },
-                },
-              ],
-            },
-          }}
-          data={info}
-        />
+                ],
+              },
+            }}
+            data={info}
+          />
+        )}
       </Container>
     );
   }
