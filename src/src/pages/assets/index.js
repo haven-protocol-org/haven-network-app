@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { Container } from "./styles";
 import Header from "../../components/header/index.js";
 import AssetCell from "../../components/assetCell/index.js";
+import { getAssets } from "../../redux/actions/index.js";
 
 class Assets extends Component {
   static defaultProps = {
@@ -17,51 +18,28 @@ class Assets extends Component {
   };
 
   componentDidMount() {
+    this.props.getAssets();
     window.scrollTo(0, 0);
   }
 
   displayAssets = () => {
-    const { db_lastblock } = this.props.data;
-
-    if (db_lastblock !== undefined) {
-      const { pricing_spot_record, pricing_record } = db_lastblock;
-
-      return Object.entries(pricing_record).map((prices) => {
-        if (prices[1] === 0) {
-          return null;
-        } else if (prices[0][0] === "u") {
-          return null;
-        } else {
-          const asset = prices[0];
-          return (
-            <AssetCell
-              to={"/assets/gold"}
-              key={prices[0]}
-              name={prices[0]}
-              value={prices[1]}
-            />
-          );
-        }
-      });
-    }
+    return this.props.data.map((asset) => {
+      const { ticker, name, ma, supply, marketcap } = asset;
+      return (
+        <AssetCell
+          to={`/assets/${ticker}`}
+          key={ticker}
+          name={`${name}`}
+          ticker={ticker}
+          ma={ma}
+          supply={supply}
+          marketcap={marketcap}
+        />
+      );
+    });
   };
 
   render() {
-    // console.log(this.props.data.db_lastblock24);
-    let supply = {};
-    let xhv, xag, xau, xcny, xeuro, xusd;
-
-    const { db_lastblock24 } = this.props.data;
-    if (db_lastblock24 !== undefined) {
-      supply = db_lastblock24.supply;
-      xag = supply.xAG.toFixed(2);
-      xhv = supply.XHV.toFixed(2);
-      xau = supply.xAU.toFixed(2);
-      xcny = supply.xCNY.toFixed(2);
-      xeuro = supply.xEUR.toFixed(2);
-      xusd = supply.xUSD.toFixed(2);
-    }
-
     return (
       <Container>
         <Header title="Assets" description="Overview of available assets" />
@@ -72,7 +50,7 @@ class Assets extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  data: state.getInfo,
+  data: state.getAssets,
 });
 
-export default connect(mapStateToProps)(Assets);
+export default connect(mapStateToProps, { getAssets })(Assets);

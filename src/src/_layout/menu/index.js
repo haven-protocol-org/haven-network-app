@@ -1,5 +1,5 @@
 // Library Imports
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 // Relative Imports
 import { Container, List, Item, Icon } from "./styles";
@@ -17,9 +17,7 @@ import protocol_active from "../../assets/menu/protocol_active.svg";
 
 const Menu = () => {
   const [index, setIndex] = useState(1);
-  useEffect(() => {
-    console.log("index", index);
-  }, [index]);
+
   return (
     <Container>
       <List>

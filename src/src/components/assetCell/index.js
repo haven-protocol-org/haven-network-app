@@ -4,12 +4,16 @@ import React from "react";
 // Relative Imports
 import { Container, Row, Title, Description } from "./styles";
 
-const AssetCell = ({ name, value }) => {
+const AssetCell = ({ name, ma, supply, ticker, marketcap }) => {
   return (
-    <Container to={`/assets/${name}`}>
+    <Container to={`/assets/${ticker}`}>
       <Row>
         <Title>{name}</Title>
-        <Description>{value}</Description>
+        <Title>${ma.toFixed(2)}</Title>
+      </Row>
+      <Row>
+        <Description>{supply.toFixed(2)}</Description>
+        <Description>{marketcap.toFixed(2)}</Description>
       </Row>
     </Container>
   );

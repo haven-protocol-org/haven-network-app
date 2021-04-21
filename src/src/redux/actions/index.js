@@ -1,6 +1,6 @@
-import { FETCH_INFO, FETCH_SUPPLY } from "../types/index.js";
+import { FETCH_INFO, FETCH_SUPPLY, FETCH_ASSETS } from "../types/index.js";
 import axios from "axios";
-
+import assetsAPI from "../../constants/mock.js";
 const haven = "https://network-api.havenprotocol.org/";
 // const testnet = "api-testnet/";
 const mainnet = "api/";
@@ -32,3 +32,18 @@ export const getSupply = () => {
     });
   };
 };
+
+export const getAssets = () => ({
+  type: FETCH_ASSETS,
+  payload: assetsAPI,
+});
+// export const getAssets = () => {
+//   return (dispatch) => {
+//     axios.get(assetsAPI).then((response) => {
+//       dispatch({
+//         type: FETCH_ASSETS,
+//         payload: response.data,
+//       });
+//     });
+//   };
+// };
