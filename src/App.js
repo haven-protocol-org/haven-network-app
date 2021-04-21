@@ -12,6 +12,7 @@ import Menu from "./src/_layout/menu/index.js";
 // Pages
 import Overview from "./src/pages/overview";
 import Assets from "./src/pages/assets";
+import Activity from "./src/pages/activity";
 import History from "./src/pages/history";
 import Protocol from "./src/pages/protocol";
 import Details from "./src/pages/details";
@@ -34,8 +35,9 @@ class App extends Component {
             <Menu />
             <Column>
               <Switch>
-                <Route path="/overview" component={Overview} />
+                <Route path="/insights" component={Overview} />
                 <Route path="/assets" exact component={Assets} />
+                <Route path="/activity" exact component={Activity} />
                 <Route path="/protocol" exact component={Protocol} />
                 <Route path="/history" exact component={History} />
                 <Route path="/assets/:id" exact component={Details} />

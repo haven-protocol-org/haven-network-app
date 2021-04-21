@@ -20,7 +20,7 @@ export const Container = styled.div`
 `;
 
 export const List = styled.div`
-  margin-top: calc(100vh / 3);
+  margin-top: calc(100vh / 4);
   position: fixed;
   width: 80px;
 
@@ -78,7 +78,7 @@ export const Item = styled(NavLink).attrs({
 
   &.${activeClassName} {
     color: ${dark.type.primary};
-    border-left: 4px solid ${dark.button.primary};
+    border-left: 2px solid ${dark.button.primary};
 
     ${media.tablet`
       border-top: 2px solid ${dark.button.primary};
