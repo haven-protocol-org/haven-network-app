@@ -11,10 +11,10 @@ export const Container = styled(Link)`
 `;
 
 export const Row = styled.div`
-  padding-top: 2px;
+  padding-top: 4px;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 2px;
+  padding-bottom: 4px;
 `;
 
 export const Title = styled.div`

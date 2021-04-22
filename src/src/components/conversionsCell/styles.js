@@ -10,9 +10,9 @@ export const Container = styled.div`
 `;
 
 export const Row = styled.div`
-  padding-top: 2px;
   display: flex;
   justify-content: space-between;
+  padding-top: 2px;
   padding-bottom: 2px;
 `;
 
@@ -27,4 +27,6 @@ export const Description = styled.div`
   font-size: 14px;
   color: ${dark.type.secondary};
   font-family: "Inter";
+  padding-top: 1px;
+  padding-bottom: 1px;
 `;

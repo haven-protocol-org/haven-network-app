@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { getAssets } from "../../redux/actions/index.js";
 import WebStatistic from "../../components/details/web/index.js";
 import ConversionsCell from "../../components/conversionsCell/index.js";
+import moment from "moment";
 
 // Relative Imports
 import { Container } from "./styles";
@@ -26,12 +27,12 @@ class Details extends Component {
   }
 
   displayAsset = () => {
-    let to = new Intl.NumberFormat("en-US", {
+    const mon = new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
     });
 
-    const decimal = new Intl.NumberFormat("en-US", {
+    const num = new Intl.NumberFormat("en-US", {
       style: "decimal",
       currency: "USD",
     });
@@ -45,10 +46,10 @@ class Details extends Component {
 
     return filter.map((asset) => {
       const { ticker, name, ma, spot, supply, marketcap } = asset;
-      const _spot = to.format(spot.toFixed(2));
-      const _ma = to.format(ma.toFixed(2));
-      const _supply = decimal.format(supply.toFixed(2));
-      const _marketcap = to.format(marketcap.toFixed(2));
+      const _spot = mon.format(spot.toFixed(2));
+      const _ma = mon.format(ma.toFixed(2));
+      const _supply = num.format(supply.toFixed(2));
+      const _marketcap = mon.format(marketcap.toFixed(2));
 
       return (
         <WebStatistic
@@ -68,21 +69,50 @@ class Details extends Component {
     const { data } = this.props;
     const { asset } = this.state;
 
+    const mon = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+
+    const num = new Intl.NumberFormat("en-US", {
+      style: "decimal",
+      currency: "USD",
+    });
+
     var history = data.filter((obj) => {
       return obj.ticker === asset;
     });
 
     if (history.length > 0) {
       return history[0].transactions.map((tx) => {
-        const { amount, date, fee, unlocks } = tx;
+        const {
+          conversion_date,
+          conversion_fee,
+          conversion_asset,
+          conversion_price,
+          minted_amount,
+          minted_asset,
+          burned_amount,
+          burned_asset,
+          unlock_date,
+        } = tx;
+
+        const _conversion_date = moment
+          .unix(conversion_date, "YYYYMMDD")
+          .fromNow(); // 9 years ago
+        const _unlock_date = moment.unix(unlock_date, "YYYYMMDD").fromNow(); // 9 years ago
 
         return (
           <ConversionsCell
-            key={date}
-            amount={amount}
-            date={date}
-            fee={fee}
-            unlocks={unlocks}
+            key={conversion_date}
+            minted_amount={`🔥 Minted ${minted_amount} ${minted_asset}`}
+            conversion_date={_conversion_date}
+            conversion_fee={conversion_fee}
+            conversion_price={conversion_price}
+            conversion_asset={conversion_asset}
+            burned_amount={burned_amount}
+            burned_asset={burned_asset}
+            unlock_date={_unlock_date}
           />
         );
       });
