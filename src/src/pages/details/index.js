@@ -6,6 +6,7 @@ import { getAssets } from "../../redux/actions/index.js";
 import WebStatistic from "../../components/details/web/index.js";
 import ConversionsCell from "../../components/conversionsCell/index.js";
 import moment from "moment";
+import AssetChart from "../../components/charts/assetPrice/index.js";
 
 // Relative Imports
 import { Container } from "./styles";
@@ -25,6 +26,10 @@ class Details extends Component {
     this.props.getAssets();
     window.scrollTo(0, 0);
   }
+
+  displayChart = () => {
+    return <AssetChart />;
+  };
 
   displayAsset = () => {
     const mon = new Intl.NumberFormat("en-US", {
@@ -109,7 +114,7 @@ class Details extends Component {
             conversion_date={_conversion_date}
             conversion_fee={conversion_fee}
             conversion_price={conversion_price}
-            conversion_asset={conversion_asset}
+            conversion_asset={minted_asset}
             burned_amount={burned_amount}
             burned_asset={burned_asset}
             unlock_date={_unlock_date}
@@ -130,10 +135,7 @@ class Details extends Component {
           back
         />
         {this.displayAsset()}
-        <Header
-          title={`${asset} Conversions`}
-          description={`Recent ${asset} conversions`}
-        />
+        {this.displayChart()}
         {this.recentTransactions()}
       </Container>
     );
